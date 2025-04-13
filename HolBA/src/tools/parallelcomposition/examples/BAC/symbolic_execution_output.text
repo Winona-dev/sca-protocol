@@ -1,0 +1,310 @@
+!!! including "./config.env.sh"
+
+!!! Using HOLBA_HOLMAKE=/home/faezeh/Desktop/HolBA/opt/hol_k14/bin/Holmake
+
+make[1]: Entering directory '/home/faezeh/Desktop/HolBA'
+!!! including "./config.env.sh"
+
+!!! Using HOLBA_HOLMAKE=/home/faezeh/Desktop/HolBA/opt/hol_k14/bin/Holmake
+
+source ./scripts/setup/env_derive.sh && cd src/tools/parallelcomposition/examples/BAC && /home/faezeh/Desktop/HolBA/opt/hol_k14/bin/Holmake 
+[0;31m%%%%%% Exporting not, because /home/faezeh/Desktop/HolBA/opt/hol_k14/bin already is in the PATH %%%%%%[0m
+[0;31m%%%%%% Exporting HOLBA_Z3_DIR's derived variables %%%%%%[0m
+Using PYTHONPATH=/home/faezeh/Desktop/HolBA/opt/z3-4.8.4.d6df51951f4c/bin/python
+Using LD_LIBRARY_PATH=/home/faezeh/Desktop/HolBA/opt/z3-4.8.4.d6df51951f4c/bin:/home/faezeh/Desktop/HolBA/opt/z3-4.8.4.d6df51951f4c/bin:
+Using HOL4_Z3_EXECUTABLE=/home/faezeh/Desktop/HolBA/opt/z3-4.8.4.d6df51951f4c/bin/z3
+Using HOL4_Z3_WRAPPED_EXECUTABLE=/home/faezeh/Desktop/HolBA/src/shared/z3_wrapper.py
+Scanning [1m$(HOLDIR)/examples/machine-code/hoare-triple[0m
+Scanning [1m$(HOLDIR)/examples/l3-machine-code/common[0m
+Scanning [1m$(HOLDIR)/examples/l3-machine-code/lib[0m
+Scanning [1m$(HOLDIR)/examples/l3-machine-code/m0/model[0m
+Scanning [1m$(HOLDIR)/examples/machine-code/decompiler[0m
+Scanning [1m$(HOLDIR)/examples/l3-machine-code[0m
+Scanning [1m$(HOLDIR)/examples/l3-machine-code/m0/step[0m
+Scanning [1m$(HOLDIR)/examples/l3-machine-code/arm8/model[0m
+Scanning [1m$(HOLDIR)/examples/l3-machine-code/arm8/step[0m
+Scanning [1m../../../../aux[0m
+Scanning [1m../../../../theory/bir[0m
+Scanning [1m../../../../theory/bir-support[0m
+Scanning [1m../../../../theory/models/l3[0m
+Scanning [1m../../../../theory/models/l3mod[0m
+Scanning [1m../../../../theory/models[0m
+Scanning [1m../../../../theory/abstract_hoare_logic[0m
+Scanning [1m$(HOLDIR)/examples/l3-machine-code/riscv/model[0m
+Scanning [1m$(HOLDIR)/examples/l3-machine-code/riscv/step[0m
+Scanning [1m../../../../theory/tools/lifter[0m
+Scanning [1m../../../../theory/tools/wp[0m
+Scanning [1m../../../../theory/tools/comp[0m
+Scanning [1m../../../../theory/tools/backlifter[0m
+Scanning [1m../../../../theory/tools[0m
+Scanning [1m../../../../theory[0m
+Scanning [1m../../../../shared/HolSmt[0m
+Scanning [1m../../../../shared/sml-simplejson[0m
+Scanning [1m../../../../shared[0m
+Scanning [1m../../sapic[0m
+Scanning [1m../../translateTosapic[0m
+Scanning [1m../../../lifter[0m
+Scanning [1m$(HOLDIR)/examples/l3-machine-code/arm8/prog[0m
+Scanning [1m../../../cfg[0m
+Scanning [1m../../../exec[0m
+Scanning [1m../../../pass[0m
+Scanning [1m../../../wp[0m
+Scanning [1m../../../comp[0m
+Scanning [1m../../../backlifter[0m
+Scanning [1m../../../angr[0m
+Scanning [1m../../../scamv/symbexec[0m
+Scanning [1m../../../scamv/persistence[0m
+Scanning [1m../../../scamv/proggen[0m
+Scanning [1m../../../scamv/obsmodel[0m
+Scanning [1m../../../scamv[0m
+Scanning [1m../../../symbexecbin[0m
+Scanning [1m../../../symbexec[0m
+Scanning [1m../../../symbexec/examples/IML[0m
+Scanning [1m../../../symbexec/examples/binaries/balrob[0m
+Scanning [1m../../../symbexec/examples/binaries[0m
+Scanning [1m../../../symbexec/examples/PreProcess[0m
+Scanning [1m../../../symbexec/examples/libload[0m
+Scanning [1m../../tree[0m
+Scanning [1m../../prettyPrint[0m
+make[1]: Leaving directory '/home/faezeh/Desktop/HolBA'
+make[1]: Entering directory '/home/faezeh/Desktop/HolBA'
+!!! including "./config.env.sh"
+
+!!! Using HOLBA_HOLMAKE=/home/faezeh/Desktop/HolBA/opt/hol_k14/bin/Holmake
+
+--- created .exe file for src/tools/parallelcomposition/examples/BAC/Combination-BAC.sml
+make[1]: Leaving directory '/home/faezeh/Desktop/HolBA'
+[0;31m%%%%%% Exporting not, because /home/faezeh/Desktop/HolBA/opt/hol_k14/bin already is in the PATH %%%%%%[0m
+[0;31m%%%%%% Exporting HOLBA_Z3_DIR's derived variables %%%%%%[0m
+Using PYTHONPATH=/home/faezeh/Desktop/HolBA/opt/z3-4.8.4.d6df51951f4c/bin/python
+Using LD_LIBRARY_PATH=/home/faezeh/Desktop/HolBA/opt/z3-4.8.4.d6df51951f4c/bin:/home/faezeh/Desktop/HolBA/opt/z3-4.8.4.d6df51951f4c/bin:
+Using HOL4_Z3_EXECUTABLE=/home/faezeh/Desktop/HolBA/opt/z3-4.8.4.d6df51951f4c/bin/z3
+Using HOL4_Z3_WRAPPED_EXECUTABLE=/home/faezeh/Desktop/HolBA/src/shared/z3_wrapper.py
+=============================================================================
+== Testing: src/tools/parallelcomposition/examples/BAC/Combination-BAC.exe ==
+=============================================================================
+found 176 blocks in program
+found 176 blocks in program
+found 194 blocks in program
+initial state created.
+
+current number of stopped states: 0
+BL_Address (Imm64 240w)
+BL_Address (Imm64 244w)
+BL_Address (Imm64 248w)
+BL_Address (Imm64 252w)
+BL_Address (Imm64 256w)
+BL_Address (Imm64 260w)
+BL_Address (Imm64 264w)
+BL_Address (Imm64 268w)
+BL_Address (Imm64 272w)
+BL_Address (Imm64 276w)
+BL_Address (Imm64 280w)
+BL_Address (Imm64 284w)
+BL_Address (Imm64 288w)
+BL_Address (Imm64 292w)
+BL_Address (Imm64 296w)
+BL_Address (Imm64 300w)
+BL_Address (Imm64 304w)
+BL_Address (Imm64 308w)
+BL_Address (Imm64 312w)
+BL_Label "0x13C*"
+BL_Label "0x140*"
+BL_Label "0xE8*"
+BL_Label "0xEC*"
+BL_Address (Imm64 316w)
+BL_Address (Imm64 320w)
+BL_Address (Imm64 324w)
+BL_Address (Imm64 328w)
+BL_Address (Imm64 332w)
+BL_Address (Imm64 336w)
+BL_Address (Imm64 340w)
+BL_Address (Imm64 344w)
+BL_Address (Imm64 348w)
+BL_Address (Imm64 352w)
+BL_Address (Imm64 356w)
+BL_Address (Imm64 360w)
+BL_Address (Imm64 364w)
+BL_Address (Imm64 368w)
+BL_Address (Imm64 372w)
+BL_Address (Imm64 376w)
+BL_Address (Imm64 380w)
+BL_Address (Imm64 384w)
+BL_Address (Imm64 388w)
+BL_Address (Imm64 392w)
+BL_Address (Imm64 396w)
+BL_Address (Imm64 400w)
+BL_Address (Imm64 404w)
+BL_Address (Imm64 408w)
+BL_Address (Imm64 412w)
+BL_Address (Imm64 416w)
+BL_Address (Imm64 420w)
+BL_Address (Imm64 424w)
+BL_Address (Imm64 428w)
+BL_Address (Imm64 432w)
+BL_Address (Imm64 436w)
+BL_Address (Imm64 440w)
+BL_Address (Imm64 444w)
+BL_Address (Imm64 532w)
+BL_Address (Imm64 448w)
+BL_Address (Imm64 452w)
+BL_Address (Imm64 456w)
+BL_Address (Imm64 460w)
+BL_Address (Imm64 464w)
+BL_Address (Imm64 468w)
+BL_Address (Imm64 472w)
+BL_Address (Imm64 476w)
+BL_Address (Imm64 480w)
+BL_Address (Imm64 484w)
+BL_Address (Imm64 488w)
+BL_Address (Imm64 492w)
+BL_Address (Imm64 496w)
+BL_Address (Imm64 500w)
+BL_Address (Imm64 504w)
+BL_Address (Imm64 508w)
+BL_Address (Imm64 512w)
+BL_Address (Imm64 516w)
+BL_Address (Imm64 524w)
+BL_Address (Imm64 540w)
+BL_Label "0x224*"
+BL_Label "0x22C*"
+BL_Label "0x230*"
+BL_Label "0x234*"
+BL_Label "0x238*"
+BL_Label "0x23C*"
+BL_Label "0x240*"
+BL_Label "0x244*"
+BL_Label "0x24C*"
+BL_Label "0x250*"
+BL_Label "0x254*"
+BL_Label "0x258*"
+BL_Address (Imm64 316w)
+BL_Address (Imm64 320w)
+BL_Address (Imm64 324w)
+BL_Address (Imm64 328w)
+BL_Address (Imm64 332w)
+BL_Address (Imm64 336w)
+BL_Address (Imm64 340w)
+BL_Address (Imm64 344w)
+BL_Address (Imm64 348w)
+BL_Address (Imm64 352w)
+BL_Address (Imm64 356w)
+BL_Address (Imm64 360w)
+BL_Address (Imm64 364w)
+BL_Address (Imm64 368w)
+BL_Address (Imm64 372w)
+BL_Address (Imm64 376w)
+BL_Address (Imm64 380w)
+BL_Address (Imm64 384w)
+BL_Address (Imm64 388w)
+BL_Address (Imm64 392w)
+BL_Address (Imm64 396w)
+BL_Address (Imm64 400w)
+BL_Address (Imm64 404w)
+BL_Address (Imm64 408w)
+BL_Address (Imm64 412w)
+BL_Address (Imm64 416w)
+BL_Address (Imm64 420w)
+BL_Address (Imm64 424w)
+BL_Address (Imm64 428w)
+BL_Address (Imm64 432w)
+BL_Address (Imm64 436w)
+BL_Address (Imm64 440w)
+BL_Address (Imm64 444w)
+BL_Address (Imm64 532w)
+BL_Address (Imm64 448w)
+BL_Address (Imm64 452w)
+BL_Address (Imm64 456w)
+BL_Address (Imm64 460w)
+BL_Address (Imm64 464w)
+BL_Address (Imm64 468w)
+BL_Address (Imm64 472w)
+BL_Address (Imm64 476w)
+BL_Address (Imm64 480w)
+BL_Address (Imm64 484w)
+BL_Address (Imm64 488w)
+BL_Address (Imm64 492w)
+BL_Address (Imm64 496w)
+BL_Address (Imm64 500w)
+BL_Address (Imm64 504w)
+BL_Address (Imm64 508w)
+BL_Address (Imm64 512w)
+BL_Address (Imm64 516w)
+BL_Address (Imm64 524w)
+BL_Address (Imm64 540w)
+BL_Label "0x248*"
+BL_Address (Imm64 316w)
+BL_Address (Imm64 320w)
+BL_Address (Imm64 324w)
+BL_Address (Imm64 328w)
+BL_Address (Imm64 332w)
+BL_Address (Imm64 336w)
+BL_Address (Imm64 340w)
+BL_Address (Imm64 344w)
+BL_Address (Imm64 348w)
+BL_Address (Imm64 352w)
+BL_Address (Imm64 356w)
+BL_Address (Imm64 360w)
+BL_Address (Imm64 364w)
+BL_Address (Imm64 368w)
+BL_Address (Imm64 372w)
+BL_Address (Imm64 376w)
+BL_Address (Imm64 380w)
+BL_Address (Imm64 384w)
+BL_Address (Imm64 388w)
+BL_Address (Imm64 392w)
+BL_Address (Imm64 396w)
+BL_Address (Imm64 400w)
+BL_Address (Imm64 404w)
+BL_Address (Imm64 408w)
+BL_Address (Imm64 412w)
+BL_Address (Imm64 416w)
+BL_Address (Imm64 420w)
+BL_Address (Imm64 424w)
+BL_Address (Imm64 428w)
+BL_Address (Imm64 432w)
+current number of stopped states: 102
+BL_Address (Imm64 436w)
+BL_Address (Imm64 440w)
+BL_Address (Imm64 444w)
+BL_Address (Imm64 532w)
+BL_Address (Imm64 448w)
+BL_Address (Imm64 452w)
+BL_Address (Imm64 456w)
+BL_Address (Imm64 460w)
+BL_Address (Imm64 464w)
+BL_Address (Imm64 468w)
+BL_Address (Imm64 472w)
+BL_Address (Imm64 476w)
+BL_Address (Imm64 480w)
+BL_Address (Imm64 484w)
+BL_Address (Imm64 488w)
+BL_Address (Imm64 492w)
+BL_Address (Imm64 496w)
+BL_Address (Imm64 500w)
+BL_Address (Imm64 504w)
+BL_Address (Imm64 508w)
+BL_Address (Imm64 512w)
+BL_Address (Imm64 516w)
+BL_Address (Imm64 524w)
+BL_Address (Imm64 540w)
+
+
+finished exploration of all paths.
+
+number of stopped symbolic execution states: 185
+
+number of "assert failed" paths found: 170
+number of "no assert failed" paths found: 15
+Get predlists
+Get refined lists
+Get tree
+Get vals_list
+Get sort_vals
+built a symbolic tree with value
+built sapic_process
+wrote into file
+=====================================================================================
+== Test successful: src/tools/parallelcomposition/examples/BAC/Combination-BAC.exe ==
+== Elapsed time:  18 sec.                                                          ==
+=====================================================================================

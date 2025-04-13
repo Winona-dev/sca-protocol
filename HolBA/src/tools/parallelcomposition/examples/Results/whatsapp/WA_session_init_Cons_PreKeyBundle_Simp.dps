@@ -1,0 +1,166 @@
+free att.
+free s0.
+free s1.
+free s15621684.
+free s15621692.
+free s15621756.
+free s15621796.
+free s15621804.
+free s15622020.
+free s15622032.
+free s15622068.
+free s16.
+free s20.
+free s24.
+free s32.
+free s40.
+free s48.
+free s56.
+free s64.
+fun s8/0.
+fun Load/2.
+fun MEM_sy/0.
+fun Plus/2.
+free R8_388.
+free SP_EL0_sy.
+fun Store/3.
+fun ecdh7/7.
+fun pair/2.
+fun serialize2/2.
+fun session/3.
+fun pk/2.
+fun pr/2.
+fun sign/3.
+
+free U, B, C, D.
+
+free X3DH.
+
+free WAS [private].
+
+reduc   LowCast(x_1, x_2) -> x_1.
+reduc	verify3(A, pk(skA,A), Plus(A, s8)) -> s1.
+reduc   verify5(pk(skA,A), sign(pr(skA,A),skA,A), Plus(sign(pr(skA,A),skA,A), s8), pr(skA,A), Plus(pr(skA,A), s8)) -> s1.
+
+
+let NewSession(A,pkA,prA,sigA,otpkA)=
+    let R0_9_1=A in
+    let R1_14_1=Plus(A, s8) in
+    let R2_23_1=pkA in
+    let Ver_25_1=verify3(R0_9_1, R2_23_1, R1_14_1) in
+    if LowCast(Ver_25_1, s32)=s0 then 
+        (out(att,s15622020))
+    else(out(att,s15621684);
+         let R25_58_1=prA in
+         if R25_58_1=s0 then 
+             (out(att,s15622032))
+         else(out(att,s15621692);
+              let R23_97_1=otpkA in
+              let R21_106_1=sigA in
+              let R24_111_1=pkA in
+              let MEM_124_1=Store(MEM_sy, s0, Plus(SP_EL0_sy, s8)) in
+              let R0_129_1=Plus(SP_EL0_sy, s8) in
+              let Seri_133_1=serialize2(R25_58_1, R0_129_1) in
+              let MEM_134_1=Store(MEM_124_1, Seri_133_1, R0_129_1) in
+              let R26_155_1=Load(MEM_134_1, Plus(SP_EL0_sy, s8)) in
+              let tmp_R1_162_1=Plus(prA, s8) in
+              let R2_167_1=prA in
+              let R4_176_1=sigA in
+              let R21_177_1=Plus(R21_106_1, s8) in
+              let Ver_188_1=verify5(R24_111_1, R4_176_1, R21_177_1, R2_167_1,
+                                    tmp_R1_162_1) in
+              if LowCast(Ver_188_1, s32)=s0 then 
+                  (out(att,s15622068))
+              else(out(att,s15621756);
+                   let R0_235_1=A in
+                   let R2_240_1=Plus(A, s8) in
+                   let R1_245_1=Plus(SP_EL0_sy, s48) in
+                   let SID_247_1=session(R0_235_1, R2_240_1, R1_245_1) in
+                   let MEM_248_1=Store(MEM_134_1, SID_247_1, R1_245_1) in
+                   let R0_267_1=Plus(A, s16) in
+                   let R1_272_1=Plus(SP_EL0_sy, s40) in
+                   new KeyPair_275_1;
+                   let RAND_NUM_274_1=KeyPair_275_1 in
+                   let MEM_276_1=Store(MEM_248_1, RAND_NUM_274_1, R1_272_1) in
+                   if R23_97_1=s0 then
+                       (out(att,s15621804);
+                        let R24_303_1=pkA in
+                        let R0_312_1=A in
+                        let R1_317_1=Plus(SP_EL0_sy, s32) in
+                        let idPair_319_1=(R0_312_1, R1_317_1) in
+                        let MEM_320_1=Store(MEM_276_1, idPair_319_1, R1_317_1) in
+                        let R21_331_1=Load(MEM_320_1, Plus(SP_EL0_sy, s32)) in
+                        let R26_352_1=Load(MEM_320_1, Plus(SP_EL0_sy, s40)) in
+                        let R0_357_1=Plus(SP_EL0_sy, s24) in
+                        let MasterSecret_378_1=ecdh7(R0_357_1, R25_58_1, R23_97_1, R4_176_1,
+                                                     R21_177_1, R26_352_1, R21_331_1) in
+                        out(X3DH,MasterSecret_378_1))
+                        else (out(att,s15621796);
+                             let MEM_401_1=Store(MEM_276_1, LowCast(R8_388, s32),
+                                                 Plus(SP_EL0_sy, s20)) in
+                             let R24_410_1=pkA in
+                             let R0_419_1=A in
+                             let R1_424_1=Plus(SP_EL0_sy, s32) in
+                             let idPair_426_1=(R0_419_1, R1_424_1) in
+                             let MEM_427_1=Store(MEM_401_1, idPair_426_1, R1_424_1) in
+                             let R21_438_1=Load(MEM_427_1, Plus(SP_EL0_sy, s32)) in
+                             let R26_459_1=Load(MEM_427_1, Plus(SP_EL0_sy, s40)) in
+                             let R0_464_1=Plus(SP_EL0_sy, s24) in
+                             let MasterSecret_485_1=ecdh7(R0_464_1, R25_58_1, R23_97_1, R4_176_1,
+                                                          R21_177_1, R26_459_1, R21_438_1) in
+                             out(X3DH,MasterSecret_485_1))))).
+
+
+
+let register(A) =
+new skA;
+let pkA = pk(skA,A) in
+let prA = pr(skA,A) in
+let sigA = sign(prA,skA,A) in
+out(WAS,(A,pkA,prA,sigA,s1)).
+
+let fstFetchServer = 
+in(WAS,ApreBundle);
+let (A,pkA,prA,sigA,otpkA)=ApreBundle in
+NewSession(A,pkA,prA,sigA,otpkA).
+
+let sndFetchServer = 
+in(WAS,ApreBundle);
+let (A,pkA,prA,sigA,otpkA)=ApreBundle in
+NewSession(A,pkA,prA,sigA,s0).
+
+let inactive =
+in(WAS,ApreBundle);
+let (A,pkA,prA,sigA,otpkA)=ApreBundle in
+NewSession(A,pkA,s0,sigA,otpkA).
+
+
+let system1 =
+(
+register(U) | 
+fstFetchServer
+).
+
+let system2 =
+(
+register(U) | 
+sndFetchServer	 
+).
+
+
+let system3 =
+(
+register(U) | 
+fstFetchServer
+).
+
+let system4 =
+(
+register(U) | 
+inactive	 
+).
+
+
+query trace_equiv(system1,system2).
+
+query trace_equiv(system3,system4).

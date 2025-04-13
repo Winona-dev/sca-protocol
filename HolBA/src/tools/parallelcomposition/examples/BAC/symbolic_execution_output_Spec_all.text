@@ -1,0 +1,228 @@
+=============================================================================
+== Testing: src/tools/parallelcomposition/examples/BAC/Combination-BAC.exe ==
+=============================================================================
+found 176 blocks in program
+found 176 blocks in program
+found 194 blocks in program
+initial state created.
+
+current number of stopped states: 0
+BL_Address (Imm64 240w)
+BL_Address (Imm64 244w)
+BL_Address (Imm64 248w)
+BL_Address (Imm64 252w)
+BL_Address (Imm64 256w)
+BL_Address (Imm64 260w)
+BL_Address (Imm64 264w)
+BL_Address (Imm64 268w)
+BL_Address (Imm64 272w)
+BL_Address (Imm64 276w)
+BL_Address (Imm64 280w)
+BL_Address (Imm64 284w)
+BL_Address (Imm64 288w)
+BL_Address (Imm64 292w)
+BL_Address (Imm64 296w)
+BL_Address (Imm64 300w)
+BL_Address (Imm64 304w)
+BL_Address (Imm64 308w)
+BL_Address (Imm64 312w)
+BL_Label "0x13C*"
+BL_Label "0x140*"
+BL_Label "0xE8*"
+BL_Label "0xEC*"
+BL_Address (Imm64 316w)
+BL_Address (Imm64 320w)
+BL_Address (Imm64 324w)
+BL_Address (Imm64 328w)
+BL_Address (Imm64 332w)
+BL_Address (Imm64 336w)
+BL_Address (Imm64 340w)
+BL_Address (Imm64 344w)
+BL_Address (Imm64 348w)
+BL_Address (Imm64 352w)
+BL_Address (Imm64 356w)
+BL_Address (Imm64 360w)
+BL_Address (Imm64 364w)
+BL_Address (Imm64 368w)
+BL_Address (Imm64 372w)
+BL_Address (Imm64 376w)
+BL_Address (Imm64 380w)
+BL_Address (Imm64 384w)
+BL_Address (Imm64 388w)
+BL_Address (Imm64 392w)
+BL_Address (Imm64 396w)
+BL_Address (Imm64 400w)
+BL_Address (Imm64 404w)
+BL_Address (Imm64 408w)
+BL_Address (Imm64 412w)
+BL_Address (Imm64 416w)
+BL_Address (Imm64 420w)
+BL_Address (Imm64 424w)
+BL_Address (Imm64 428w)
+BL_Address (Imm64 432w)
+BL_Address (Imm64 436w)
+BL_Address (Imm64 440w)
+BL_Address (Imm64 444w)
+BL_Address (Imm64 532w)
+BL_Address (Imm64 448w)
+BL_Address (Imm64 452w)
+BL_Address (Imm64 456w)
+BL_Address (Imm64 460w)
+BL_Address (Imm64 464w)
+BL_Address (Imm64 468w)
+BL_Address (Imm64 472w)
+BL_Address (Imm64 476w)
+BL_Address (Imm64 480w)
+BL_Address (Imm64 484w)
+BL_Address (Imm64 488w)
+BL_Address (Imm64 492w)
+BL_Address (Imm64 496w)
+BL_Address (Imm64 500w)
+BL_Address (Imm64 504w)
+BL_Address (Imm64 508w)
+BL_Address (Imm64 512w)
+BL_Address (Imm64 516w)
+BL_Address (Imm64 524w)
+BL_Address (Imm64 540w)
+BL_Label "0x224*"
+BL_Label "0x22C*"
+BL_Label "0x230*"
+BL_Label "0x234*"
+BL_Label "0x238*"
+BL_Label "0x23C*"
+BL_Label "0x240*"
+BL_Label "0x244*"
+BL_Label "0x24C*"
+BL_Label "0x250*"
+BL_Label "0x254*"
+BL_Label "0x258*"
+BL_Address (Imm64 316w)
+BL_Address (Imm64 320w)
+BL_Address (Imm64 324w)
+BL_Address (Imm64 328w)
+BL_Address (Imm64 332w)
+BL_Address (Imm64 336w)
+BL_Address (Imm64 340w)
+BL_Address (Imm64 344w)
+BL_Address (Imm64 348w)
+BL_Address (Imm64 352w)
+BL_Address (Imm64 356w)
+BL_Address (Imm64 360w)
+BL_Address (Imm64 364w)
+BL_Address (Imm64 368w)
+BL_Address (Imm64 372w)
+BL_Address (Imm64 376w)
+BL_Address (Imm64 380w)
+BL_Address (Imm64 384w)
+BL_Address (Imm64 388w)
+BL_Address (Imm64 392w)
+BL_Address (Imm64 396w)
+BL_Address (Imm64 400w)
+BL_Address (Imm64 404w)
+BL_Address (Imm64 408w)
+BL_Address (Imm64 412w)
+BL_Address (Imm64 416w)
+BL_Address (Imm64 420w)
+BL_Address (Imm64 424w)
+BL_Address (Imm64 428w)
+BL_Address (Imm64 432w)
+BL_Address (Imm64 436w)
+BL_Address (Imm64 440w)
+BL_Address (Imm64 444w)
+BL_Address (Imm64 532w)
+BL_Address (Imm64 448w)
+BL_Address (Imm64 452w)
+BL_Address (Imm64 456w)
+BL_Address (Imm64 460w)
+BL_Address (Imm64 464w)
+BL_Address (Imm64 468w)
+BL_Address (Imm64 472w)
+BL_Address (Imm64 476w)
+BL_Address (Imm64 480w)
+BL_Address (Imm64 484w)
+BL_Address (Imm64 488w)
+BL_Address (Imm64 492w)
+BL_Address (Imm64 496w)
+BL_Address (Imm64 500w)
+BL_Address (Imm64 504w)
+BL_Address (Imm64 508w)
+BL_Address (Imm64 512w)
+BL_Address (Imm64 516w)
+BL_Address (Imm64 524w)
+BL_Address (Imm64 540w)
+BL_Label "0x248*"
+BL_Address (Imm64 316w)
+BL_Address (Imm64 320w)
+BL_Address (Imm64 324w)
+BL_Address (Imm64 328w)
+BL_Address (Imm64 332w)
+BL_Address (Imm64 336w)
+BL_Address (Imm64 340w)
+BL_Address (Imm64 344w)
+BL_Address (Imm64 348w)
+BL_Address (Imm64 352w)
+BL_Address (Imm64 356w)
+BL_Address (Imm64 360w)
+BL_Address (Imm64 364w)
+BL_Address (Imm64 368w)
+BL_Address (Imm64 372w)
+BL_Address (Imm64 376w)
+BL_Address (Imm64 380w)
+BL_Address (Imm64 384w)
+BL_Address (Imm64 388w)
+BL_Address (Imm64 392w)
+BL_Address (Imm64 396w)
+BL_Address (Imm64 400w)
+BL_Address (Imm64 404w)
+BL_Address (Imm64 408w)
+BL_Address (Imm64 412w)
+BL_Address (Imm64 416w)
+BL_Address (Imm64 420w)
+BL_Address (Imm64 424w)
+BL_Address (Imm64 428w)
+BL_Address (Imm64 432w)
+current number of stopped states: 102
+BL_Address (Imm64 436w)
+BL_Address (Imm64 440w)
+BL_Address (Imm64 444w)
+BL_Address (Imm64 532w)
+BL_Address (Imm64 448w)
+BL_Address (Imm64 452w)
+BL_Address (Imm64 456w)
+BL_Address (Imm64 460w)
+BL_Address (Imm64 464w)
+BL_Address (Imm64 468w)
+BL_Address (Imm64 472w)
+BL_Address (Imm64 476w)
+BL_Address (Imm64 480w)
+BL_Address (Imm64 484w)
+BL_Address (Imm64 488w)
+BL_Address (Imm64 492w)
+BL_Address (Imm64 496w)
+BL_Address (Imm64 500w)
+BL_Address (Imm64 504w)
+BL_Address (Imm64 508w)
+BL_Address (Imm64 512w)
+BL_Address (Imm64 516w)
+BL_Address (Imm64 524w)
+BL_Address (Imm64 540w)
+
+finished exploration of all paths.
+
+number of stopped symbolic execution states: 185
+
+number of "assert failed" paths found: 170
+number of "no assert failed" paths found: 15
+Get predlists
+Get refined lists
+Get tree
+Get vals_list
+Get sort_vals
+built a symbolic tree with value
+built sapic_process
+wrote into file
+./scripts/run-test.sh: line 57: printf: 22.201035976409912: invalid number
+=====================================================================================
+== Test successful: src/tools/parallelcomposition/examples/BAC/Combination-BAC.exe ==
+== Elapsed time:  20 sec.                                                          ==
+=====================================================================================

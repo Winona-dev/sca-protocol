@@ -1,0 +1,91 @@
+
+
+theory BAC
+
+begin
+
+builtins: dest-pairing, dest-symmetric-encryption
+
+functions: Minus/2, Plus/2, Not/1, Equal/2, SignedLessThan/2, LowCast/2, UnsignedCast/2, Load/2, IfThenElse/3, LessOrEqual/2, SignedLessOrEqual/2, And/2, hash2/2, enc/2, Or/2, RightShift/2, LeftShift/2, hkdf/2, pars12/1, pars22/1,  pars13/1, pars23/1, dec/2, true/0, compare/2, mac/2, compare_mac/2, challenge/0, compare_nonces/2, conc3/3, att/0, SP_EL0_sy/0, R2_star_432/0, R3_star_439/0, R0_star_423/0, R0_64/0
+
+//equations: dec(enc(m, k), k) = m, Equal(x,x)=true, Minus(Plus(x,y),y) = x, Plus(Minus(x,y),y) = x
+
+
+
+let passport(ke,km) =
+let SP_EL0_5=Minus(SP_EL0_sy,'2608') in 
+let R0_55='0' in 
+let R1_89='0' in 
+in(att,a_92);
+let R2_111=Minus(SP_EL0_sy,'2568') in 
+let R0_114='0' in 
+let R1_117='0' in 
+let check_121=compare(a_92,challenge) in 
+let ProcState_Z_129=Equal(LowCast(check_121,'32'),'0') in 
+if LowCast(check_121,'32')='0' then 
+out(att,'320');
+new ~140_nonce;
+let RAND_NUM_139=~140_nonce in 
+let R0_159=Minus(SP_EL0_sy,'2312') in 
+out(att,RAND_NUM_139);
+in(att,a_164);
+let pars12_180=pars12(a_164) in 
+let R0_199=Minus(SP_EL0_sy,'2056') in 
+let mac_212=mac(pars12_180,km) in 
+let R1_231=Minus(SP_EL0_sy,'1800') in 
+let R0_236=Minus(SP_EL0_sy,'1544') in 
+let cmpmac_238=compare_mac(pars22(a_164),mac_212) in 
+let ProcState_Z_246=Equal(LowCast(cmpmac_238,'32'),'0') in 
+if LowCast(cmpmac_238,'32')='0' then 
+out(att,'404');
+let R3_259=Minus(SP_EL0_sy,'776') in 
+let R2_264=Minus(SP_EL0_sy,'1032') in 
+let R1_269=Minus(SP_EL0_sy,'1288') in 
+let R0_274=Minus(SP_EL0_sy,'2056') in 
+let Dec_293=dec(pars12_180,ke) in 
+let Pars13_296=pars13(Dec_293) in 
+let Pars23_297=pars23(Dec_293) in 
+let ProcState_Z_303=Equal(LowCast(Dec_293,'32'),'0') in 
+if LowCast(Dec_293,'32')='0' then 
+out(att,'532');
+let R0_314='0' in 
+0
+else out(att,'448');
+let R1_319=Minus(SP_EL0_sy,'2312') in 
+let R0_324=Minus(SP_EL0_sy,'1032') in 
+let cmpnonce_326=compare_nonces(Pars23_297,RAND_NUM_139) in 
+let ProcState_Z_334=Equal(LowCast(cmpnonce_326,'32'),'0') in 
+if LowCast(cmpnonce_326,'32')='0' then 
+out(att,'468');
+new ~345_nonce;
+let RAND_NUM_344=~345_nonce in 
+let R3_364=Minus(SP_EL0_sy,'264') in 
+let R2_369=Minus(SP_EL0_sy,'520') in 
+let R1_374=Minus(SP_EL0_sy,'1288') in 
+let R0_379=Minus(SP_EL0_sy,'2312') in 
+let Conc_394=conc3(Pars23_297,RAND_NUM_344,Pars13_296) in 
+let Enc_397=enc(Conc_394,ke) in 
+out(att,Enc_397);
+let R0_403=Minus(SP_EL0_sy,'264') in 
+let mac_416=mac(Enc_397,km) in 
+out(att,mac_416)
+else out(att,'524');
+let R0_420='0' in 
+0
+else out(att,'540');
+let R0_423='0' in 
+0
+else out(att,'548')
+
+process:
+!(
+new ke;
+new km;
+!(
+passport(ke,km)
+))
+
+
+
+
+end

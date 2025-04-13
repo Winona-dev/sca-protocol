@@ -1,0 +1,61 @@
+let R0_9=Load(MEM_sy,R19_sy) in 
+let R1_14=Load(MEM_sy,Plus(R19_sy,'8')) in 
+let R2_23=Load(MEM_sy,Plus(R20_sy,'64')) in 
+let Ver_25=verify3(R0_9,R2_23,R1_14) in 
+if LowCast(Ver_25,'32')='0' then 
+out(att,'15622020')
+else out(att,'15621684');
+let R25_58=Load(MEM_sy,Plus(R20_sy,'48')) in 
+if R25_58='0' then 
+out(att,'15622032')
+else out(att,'15621692');
+let R23_97=Load(MEM_sy,Plus(R20_sy,'32')) in 
+let R21_106=Load(MEM_sy,Plus(R20_sy,'56')) in 
+let R24_111=Load(MEM_sy,Plus(R20_sy,'64')) in 
+let MEM_124=Store(MEM_sy,'0',Plus(SP_EL0_sy,'8')) in 
+let R0_129=Plus(SP_EL0_sy,'8') in 
+let Seri_133=serialize2(R25_58,R0_129) in 
+let MEM_134=Store(MEM_124,Seri_133,R0_129) in 
+let R26_155=Load(MEM_134,Plus(SP_EL0_sy,'8')) in 
+let tmp_R1_162=Plus(R26_155,'8') in 
+let R2_167=Load(MEM_134,R26_155) in 
+let R4_176=Load(MEM_134,R21_106) in 
+let R21_177=Plus(R21_106,'8') in 
+let Ver_188=verify5(R24_111,R4_176,R21_177,R2_167,tmp_R1_162) in 
+if LowCast(Ver_188,'32')='0' then 
+out(att,'15622068')
+else out(att,'15621756');
+let R0_235=Load(MEM_134,R19_sy) in 
+let R2_240=Load(MEM_134,Plus(R19_sy,'8')) in 
+let R1_245=Plus(SP_EL0_sy,'48') in 
+let SID_247=session(R0_235,R2_240,R1_245) in 
+let MEM_248=Store(MEM_134,SID_247,R1_245) in 
+let R0_267=Load(MEM_248,Plus(R19_sy,'16')) in 
+let R1_272=Plus(SP_EL0_sy,'40') in 
+new ~KeyPair_275;
+let RAND_NUM_274=~KeyPair_275 in 
+let MEM_276=Store(MEM_248,RAND_NUM_274,R1_272) in 
+if R23_97='0' then 
+out(att,'15621804');
+let R24_303=Load(MEM_276,Plus(R20_sy,'64')) in 
+let R0_312=Load(MEM_276,R19_sy) in 
+let R1_317=Plus(SP_EL0_sy,'32') in 
+let idPair_319=pair(R0_312,R1_317) in 
+let MEM_320=Store(MEM_276,idPair_319,R1_317) in 
+let R21_331=Load(MEM_320,Plus(SP_EL0_sy,'32')) in 
+let R26_352=Load(MEM_320,Plus(SP_EL0_sy,'40')) in 
+let R0_357=Plus(SP_EL0_sy,'24') in 
+let MasterSecret_378=ecdh7(R0_357,R25_58,R23_97,R4_176,R21_177,R26_352,R21_331) in 
+out(X3DH,MasterSecret_378)
+else out(att,'15621796');
+let MEM_401=Store(MEM_276,LowCast(R8_388,'32'),Plus(SP_EL0_sy,'20')) in 
+let R24_410=Load(MEM_401,Plus(R20_sy,'64')) in 
+let R0_419=Load(MEM_401,R19_sy) in 
+let R1_424=Plus(SP_EL0_sy,'32') in 
+let idPair_426=pair(R0_419,R1_424) in 
+let MEM_427=Store(MEM_401,idPair_426,R1_424) in 
+let R21_438=Load(MEM_427,Plus(SP_EL0_sy,'32')) in 
+let R26_459=Load(MEM_427,Plus(SP_EL0_sy,'40')) in 
+let R0_464=Plus(SP_EL0_sy,'24') in 
+let MasterSecret_485=ecdh7(R0_464,R25_58,R23_97,R4_176,R21_177,R26_459,R21_438) in 
+out(X3DH,MasterSecret_485)

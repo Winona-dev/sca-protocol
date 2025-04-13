@@ -1,0 +1,187 @@
+let SP_EL0_5=Minus(SP_EL0_sy,'2608') in 
+let R0_55='0' in 
+let R1_89='0' in 
+in(att,a_92);
+let R2_111=Minus(SP_EL0_sy,'2568') in 
+let R0_114='0' in 
+let R1_117='0' in 
+let check_121=compare(a_92,challenge) in 
+let ProcState_Z_129=Equal(LowCast(check_121,'32'),'0') in 
+let R3_sy=sy_R3_1160 in 
+let R1*_132='0' in 
+if Not(ProcState_Z_129) then 
+out(att,0x140*);
+let R30*_139='324' in 
+if LowCast(check_121,'32')='0' then 
+out(att,'320');
+new ~152_nonce;
+let RAND_NUM_151=~152_nonce in 
+let R0_171=Minus(SP_EL0_sy,'2312') in 
+out(att,RAND_NUM_151);
+in(att,a_176);
+let pars12_192=pars12(a_176) in 
+let R0_211=Minus(SP_EL0_sy,'2056') in 
+let mac_224=mac(pars12_192,km) in 
+let R1_243=Minus(SP_EL0_sy,'1800') in 
+let R0_248=Minus(SP_EL0_sy,'1544') in 
+let cmpmac_250=compare_mac(pars22(a_176),mac_224) in 
+let ProcState_Z_258=Equal(LowCast(cmpmac_250,'32'),'0') in 
+if LowCast(cmpmac_250,'32')='0' then 
+out(att,'404');
+let R3_271=Minus(SP_EL0_sy,'776') in 
+let R2_276=Minus(SP_EL0_sy,'1032') in 
+let R1_281=Minus(SP_EL0_sy,'1288') in 
+let R0_286=Minus(SP_EL0_sy,'2056') in 
+let Dec_305=dec(pars12_192,ke) in 
+let Pars13_308=pars13(Dec_305) in 
+let Pars23_309=pars23(Dec_305) in 
+let ProcState_Z_315=Equal(LowCast(Dec_305,'32'),'0') in 
+if LowCast(Dec_305,'32')='0' then 
+out(att,'532');
+let R0_326='0' in 
+0
+else out(att,'448');
+let R1_331=Minus(SP_EL0_sy,'2312') in 
+let R0_336=Minus(SP_EL0_sy,'1032') in 
+let cmpnonce_338=compare_nonces(Pars23_309,RAND_NUM_151) in 
+let ProcState_Z_346=Equal(LowCast(cmpnonce_338,'32'),'0') in 
+if LowCast(cmpnonce_338,'32')='0' then 
+out(att,'468');
+new ~357_nonce;
+let RAND_NUM_356=~357_nonce in 
+let R3_376=Minus(SP_EL0_sy,'264') in 
+let R2_381=Minus(SP_EL0_sy,'520') in 
+let R1_386=Minus(SP_EL0_sy,'1288') in 
+let R0_391=Minus(SP_EL0_sy,'2312') in 
+let Conc_406=conc3(Pars23_309,RAND_NUM_356,Pars13_308) in 
+let Enc_409=enc(Conc_406,ke) in 
+out(att,Enc_409);
+let R0_415=Minus(SP_EL0_sy,'264') in 
+let mac_428=mac(Enc_409,km) in 
+out(att,mac_428)
+else out(att,'524');
+let R0_432='0' in 
+0
+else out(att,'540');
+let R0_435='0' in 
+0
+else out(att,'548')
+else out(att,0x224*);
+let R0*_436='0' in 
+let ProcState_Z*_463=Equal(R2*_452,R3*_459) in 
+let R2*_464=Minus(R2*_452,R3*_459) in 
+let R3*_465='0' in 
+if Not(ProcState_Z*_463) then 
+out(att,0x24C*);
+let R0*_472='0' in 
+let SP_EL0*_491=Plus(SP_EL0_sy,'0') in 
+if LowCast(check_121,'32')='0' then 
+out(att,'320');
+new ~504_nonce;
+let RAND_NUM_503=~504_nonce in 
+let R0_523=Minus(SP_EL0_sy,'2312') in 
+out(att,RAND_NUM_503);
+in(att,a_528);
+let pars12_544=pars12(a_528) in 
+let R0_563=Minus(SP_EL0_sy,'2056') in 
+let mac_576=mac(pars12_544,km) in 
+let R1_595=Minus(SP_EL0_sy,'1800') in 
+let R0_600=Minus(SP_EL0_sy,'1544') in 
+let cmpmac_602=compare_mac(pars22(a_528),mac_576) in 
+let ProcState_Z_610=Equal(LowCast(cmpmac_602,'32'),'0') in 
+if LowCast(cmpmac_602,'32')='0' then 
+out(att,'404');
+let R3_623=Minus(SP_EL0_sy,'776') in 
+let R2_628=Minus(SP_EL0_sy,'1032') in 
+let R1_633=Minus(SP_EL0_sy,'1288') in 
+let R0_638=Minus(SP_EL0_sy,'2056') in 
+let Dec_657=dec(pars12_544,ke) in 
+let Pars13_660=pars13(Dec_657) in 
+let Pars23_661=pars23(Dec_657) in 
+let ProcState_Z_667=Equal(LowCast(Dec_657,'32'),'0') in 
+if LowCast(Dec_657,'32')='0' then 
+out(att,'532');
+let R0_678='0' in 
+0
+else out(att,'448');
+let R1_683=Minus(SP_EL0_sy,'2312') in 
+let R0_688=Minus(SP_EL0_sy,'1032') in 
+let cmpnonce_690=compare_nonces(Pars23_661,RAND_NUM_503) in 
+let ProcState_Z_698=Equal(LowCast(cmpnonce_690,'32'),'0') in 
+if LowCast(cmpnonce_690,'32')='0' then 
+out(att,'468');
+new ~709_nonce;
+let RAND_NUM_708=~709_nonce in 
+let R3_728=Minus(SP_EL0_sy,'264') in 
+let R2_733=Minus(SP_EL0_sy,'520') in 
+let R1_738=Minus(SP_EL0_sy,'1288') in 
+let R0_743=Minus(SP_EL0_sy,'2312') in 
+let Conc_758=conc3(Pars23_661,RAND_NUM_708,Pars13_660) in 
+let Enc_761=enc(Conc_758,ke) in 
+out(att,Enc_761);
+let R0_767=Minus(SP_EL0_sy,'264') in 
+let mac_780=mac(Enc_761,km) in 
+out(att,mac_780)
+else out(att,'524');
+let R0_784='0' in 
+0
+else out(att,'540');
+let R0_787='0' in 
+0
+else out(att,'548')
+else out(att,0x248*);
+let R30*_788='588' in 
+if LowCast(check_121,'32')='0' then 
+out(att,'320');
+new ~801_nonce;
+let RAND_NUM_800=~801_nonce in 
+let R0_820=Minus(SP_EL0_sy,'2312') in 
+out(att,RAND_NUM_800);
+in(att,a_825);
+let pars12_841=pars12(a_825) in 
+let R0_860=Minus(SP_EL0_sy,'2056') in 
+let mac_873=mac(pars12_841,km) in 
+let R1_892=Minus(SP_EL0_sy,'1800') in 
+let R0_897=Minus(SP_EL0_sy,'1544') in 
+let cmpmac_899=compare_mac(pars22(a_825),mac_873) in 
+let ProcState_Z_907=Equal(LowCast(cmpmac_899,'32'),'0') in 
+if LowCast(cmpmac_899,'32')='0' then 
+out(att,'404');
+let R3_920=Minus(SP_EL0_sy,'776') in 
+let R2_925=Minus(SP_EL0_sy,'1032') in 
+let R1_930=Minus(SP_EL0_sy,'1288') in 
+let R0_935=Minus(SP_EL0_sy,'2056') in 
+let Dec_954=dec(pars12_841,ke) in 
+let Pars13_957=pars13(Dec_954) in 
+let Pars23_958=pars23(Dec_954) in 
+let ProcState_Z_964=Equal(LowCast(Dec_954,'32'),'0') in 
+if LowCast(Dec_954,'32')='0' then 
+out(att,'532');
+let R0_975='0' in 
+0
+else out(att,'448');
+let R1_980=Minus(SP_EL0_sy,'2312') in 
+let R0_985=Minus(SP_EL0_sy,'1032') in 
+let cmpnonce_987=compare_nonces(Pars23_958,RAND_NUM_800) in 
+let ProcState_Z_995=Equal(LowCast(cmpnonce_987,'32'),'0') in 
+if LowCast(cmpnonce_987,'32')='0' then 
+out(att,'468');
+new ~1006_nonce;
+let RAND_NUM_1005=~1006_nonce in 
+let R3_1025=Minus(SP_EL0_sy,'264') in 
+let R2_1030=Minus(SP_EL0_sy,'520') in 
+let R1_1035=Minus(SP_EL0_sy,'1288') in 
+let R0_1040=Minus(SP_EL0_sy,'2312') in 
+let Conc_1055=conc3(Pars23_958,RAND_NUM_1005,Pars13_957) in 
+let Enc_1058=enc(Conc_1055,ke) in 
+out(att,Enc_1058);
+let R0_1064=Minus(SP_EL0_sy,'264') in 
+let mac_1077=mac(Enc_1058,km) in 
+out(att,mac_1077)
+else out(att,'524');
+let R0_1081='0' in 
+0
+else out(att,'540');
+let R0_1084='0' in 
+0
+else out(att,'548')

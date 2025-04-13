@@ -1,0 +1,53 @@
+========================================================================================================================================================
+== Testing: src/tools/parallelcomposition/examples/WhatsApp_session_builder_process_pre_key_bundle/WhatsAppsession_builder_process_pre_key_bundle.exe ==
+========================================================================================================================================================
+===========================
+== Test running: src/tools/parallelcomposition/examples/WhatsApp_session_builder_process_pre_key_bundle/WhatsAppsession_builder_process_pre_key_bundle.exe ==
+== Time so far:  30 sec. ==
+===========================
+found 6841 blocks in program
+found 6841 blocks in program
+found 6896 blocks in program
+initial state created.
+
+current number of stopped states: 0
+current number of stopped states: 79
+current number of stopped states: 229
+===========================
+== Test running: src/tools/parallelcomposition/examples/WhatsApp_session_builder_process_pre_key_bundle/WhatsAppsession_builder_process_pre_key_bundle.exe ==
+== Time so far:  60 sec. ==
+===========================
+current number of stopped states: 314
+current number of stopped states: 460
+current number of stopped states: 538
+current number of stopped states: 637
+
+
+finished exploration of all paths.
+
+number of stopped symbolic execution states: 799
+
+number of "assert failed" paths found: 679
+number of "no assert failed" paths found: 120
+Get predlists
+===========================
+== Test running: src/tools/parallelcomposition/examples/WhatsApp_session_builder_process_pre_key_bundle/WhatsAppsession_builder_process_pre_key_bundle.exe ==
+== Time so far:  90 sec. ==
+===========================
+Get refined predlists
+Get tree
+Get vals_list
+===========================
+== Test running: src/tools/parallelcomposition/examples/WhatsApp_session_builder_process_pre_key_bundle/WhatsAppsession_builder_process_pre_key_bundle.exe ==
+== Time so far: 120 sec. ==
+===========================
+Get sort_vals
+built a symbolic tree with value
+built purged_tree
+built sapic_process
+built a refined process with live variables
+wrote into file
+============================
+== Test successful: src/tools/parallelcomposition/examples/WhatsApp_session_builder_process_pre_key_bundle/WhatsAppsession_builder_process_pre_key_bundle.exe ==
+== Elapsed time: 140 sec. ==
+============================
