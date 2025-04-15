@@ -1,6 +1,6 @@
 open HolKernel Parse
 open binariesLib;
-open WhatsApp_decryptPreKeyCiphertextDataTheory;
+open WhatsApp_session_cipher_decrypt_signal_messageTheory;
 open bir_symbexec_stateLib;
 open bir_symbexec_coreLib;
 open bir_symbexec_stepLib;
@@ -30,8 +30,6 @@ open sapic_to_fileLib;
 open bir_symbexec_loopLib;
 open bir_inst_liftingHelpersLib;
 
-val _ = bir_symbexec_step_execstep_spec := false;
-
 fun update_n_dict_ ([], n_dict) = n_dict
     | update_n_dict_ (((lbl_tm)::todo), n_dict) =
 	  let
@@ -52,7 +50,7 @@ fun update_n_dict_ ([], n_dict) = n_dict
      
 val (_, _, _, prog_tm) =
   (dest_bir_is_lifted_prog o concl)
-      (DB.fetch "WhatsApp_decryptPreKeyCiphertextData" "WhatsApp_decryptPreKeyCiphertextData_thm");
+      (DB.fetch "WhatsApp_session_cipher_decrypt_signal_message" "WhatsApp_session_cipher_decrypt_signal_message_thm");
     
 val bl_dict_    = gen_block_dict prog_tm;
 val prog_lbl_tms_ = get_block_dict_keys bl_dict_;
@@ -70,18 +68,44 @@ val prog_vars = bv_key::prog_vars;
 val op_mem = “BVar "Op_MEM" (BType_Mem Bit64 Bit8)”;
 
 val prog_vars = op_mem::prog_vars;
-    
+
 val crypto = “BVar "Crypto" (BType_Imm Bit64)”;
 
 val prog_vars = crypto::prog_vars;
+
+val ephemeral = “BVar "Ephemeral" (BType_Imm Bit64)”;
+
+val prog_vars = ephemeral::prog_vars;
+    
+val root = “BVar "Root" (BType_Imm Bit64)”;
+
+val prog_vars = root::prog_vars;
     
 val n_dict = bir_cfgLib.cfg_build_node_dict bl_dict_ prog_lbl_tms_;
-     
-val lbl_tm = ``BL_Address (Imm64 0x1267A08w)``;
+    
+val lbl_tm = ``BL_Address (Imm64 0xEE65F8w)``;
+    
+val g1 = cfg_create "toy1" [lbl_tm] n_dict bl_dict_;
 
-val stop_lbl_tms = [``BL_Address (Imm64 0x1267AA0w)``,
-		      “BL_Address (Imm64 0xEE6490w)”,
-		   “BL_Address (Imm64 0xEE63E8w)”];
+val n_dict = update_n_dict_ ((#CFGG_nodes g1),(#CFGG_node_dict g1));
+
+   
+val adr_dict = bir_symbexec_PreprocessLib.fun_addresses_dict  n_dict;    
+
+    
+val stop_lbl_tms = [
+    ``BL_Address (Imm64 0xEE672cw)``,
+      ``BL_Address (Imm64 0xEE6AE4w)``,
+      ``BL_Address (Imm64 0xEE6B80w)``,
+      “BL_Address (Imm64 0x12C1B70w)”,
+      “BL_Address (Imm64 0x12F83A8w)”,
+      “BL_Address (Imm64 0x12EC14Cw)”,
+      “BL_Address_HC (Imm64 0xEE68ACw)”,
+     “BL_Address (Imm64 0xEE6700w)”,
+      “BL_Address (Imm64 0xEE6710w)”,
+      “BL_Address (Imm64 0xEE676Cw)”,
+      “BL_Address_HC (Imm64 0xEE681Cw)”
+];
     
 val syst = init_state lbl_tm prog_vars;
 
@@ -92,13 +116,7 @@ val syst = state_add_preds "init_pred" pred_conjs syst;
 val _ = print "initial state created.\n\n";
 
 val cfb = false;
-
-val g1 = cfg_create "toy" [lbl_tm] n_dict bl_dict_;
-
-val n_dict = update_n_dict_ ((#CFGG_nodes g1),(#CFGG_node_dict g1));
-
-val adr_dict = bir_symbexec_PreprocessLib.fun_addresses_dict n_dict;
-     
+    
 val systs = symb_exec_to_stop (abpfun cfb) n_dict bl_dict_ [syst] stop_lbl_tms adr_dict [];
 val _ = print "\n\n";
 val _ = print "finished exploration of all paths.\n\n";
@@ -112,7 +130,7 @@ val _ = print "\n";
 val _ = print ("number of \"no assert failed\" paths found: " ^ (Int.toString (length systs_noassertfailed)));
 val _ = print "\n";
 
-    
+  
 val predlists = List.map (fn syst => ((rev o SYST_get_pred) syst))
                          systs_noassertfailed;
 
@@ -145,9 +163,9 @@ val _ = print ("built a symbolic tree with value");
 val _ = print "\n";
 
 
-val crypto_calls = false;
+val crypto_calls = true;
     
-val full = true;
+val full = false;
 
 val _ = if full then
 	    let
@@ -159,11 +177,26 @@ val _ = if full then
 	    in
 		print ("wrote into file\n")
 	    end
-	else 
+	else if crypto_calls then
 	    let
-		val _ = if crypto_calls then cryptography := true
-			else cryptography := false;
+		val _ = cryptography := true;
 		    
+		val _ = simplification := true;
+
+		val sapic_process = sbir_tree_sapic_process sort_vals valtr;
+
+		val _ = print ("built sapic_process\n");
+
+		val refined_process = refine_process sapic_process;
+
+		val _ =  ( write_sapic_to_file o process_to_string) refined_process;	    
+	    in
+		print ("wrote into file\n")
+	    end
+	else
+	    let
+		val _ = cryptography := false;
+
 		val _ = simplification := true;
 
 		val purged_tree = (purge_tree valtr);
@@ -174,15 +207,7 @@ val _ = if full then
 
 		val _ = print ("built sapic_process\n");
 
-		val refined_process = refine_process sapic_process;
-
-		val rset = ((Redblackset.empty Term.compare): term Redblackset.set);
-		    
-		val process_with_live_vars = process_live_vars rset refined_process;
-		    
-		val _ = print ("built a refined process with live variables\n");
-
-		val _ =  ( write_sapic_to_file o process_to_string) refined_process;	    
+		val _ =  ( write_sapic_to_file o process_to_string) sapic_process; 
 	    in
 		print ("wrote into file\n")
 	    end;

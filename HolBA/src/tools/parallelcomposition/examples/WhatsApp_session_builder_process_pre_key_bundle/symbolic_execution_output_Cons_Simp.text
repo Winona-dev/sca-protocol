@@ -1,9 +1,8 @@
-========================================================================================================================================================
-== Testing: src/tools/parallelcomposition/examples/WhatsApp_session_builder_process_pre_key_bundle/WhatsAppsession_builder_process_pre_key_bundle.exe ==
-========================================================================================================================================================
-./scripts/run-test.sh: line 25: printf: 30.00356698036194: invalid number
+=================================================================================================================================================================
+== Testing: src/tools/parallelcomposition/examples/WhatsApp_session_builder_process_pre_key_bundle/WhatsAppsession_builder_process_pre_key_bundle_with_obs.exe ==
+=================================================================================================================================================================
 ===========================
-== Test running: src/tools/parallelcomposition/examples/WhatsApp_session_builder_process_pre_key_bundle/WhatsAppsession_builder_process_pre_key_bundle.exe ==
+== Test running: src/tools/parallelcomposition/examples/WhatsApp_session_builder_process_pre_key_bundle/WhatsAppsession_builder_process_pre_key_bundle_with_obs.exe ==
 == Time so far:  30 sec. ==
 ===========================
 found 6844 blocks in program
@@ -11,7 +10,6 @@ found 6844 blocks in program
 initial state created.
 
 current number of stopped states: 0
-current number of stopped states: 6
 
 
 finished exploration of all paths.
@@ -21,22 +19,16 @@ number of stopped symbolic execution states: 77
 number of "assert failed" paths found: 65
 number of "no assert failed" paths found: 12
 Get predlists
-./scripts/run-test.sh: line 25: printf: 60.03454399108887: invalid number
-===========================
-== Test running: src/tools/parallelcomposition/examples/WhatsApp_session_builder_process_pre_key_bundle/WhatsAppsession_builder_process_pre_key_bundle.exe ==
-== Time so far:  60 sec. ==
-===========================
 Get refined predlists
 Get tree
 Get vals_list
 Get sort_vals
 built a symbolic tree with value
-built purged_tree
+built a purged tree
 built sapic_process
 built a refined process with live variables
 wrote into file
-./scripts/run-test.sh: line 57: printf: 64.9220027923584: invalid number
 ============================
-== Test successful: src/tools/parallelcomposition/examples/WhatsApp_session_builder_process_pre_key_bundle/WhatsAppsession_builder_process_pre_key_bundle.exe ==
-== Elapsed time:  64 sec. ==
+== Test successful: src/tools/parallelcomposition/examples/WhatsApp_session_builder_process_pre_key_bundle/WhatsAppsession_builder_process_pre_key_bundle_with_obs.exe ==
+== Elapsed time:  55 sec. ==
 ============================

@@ -94,7 +94,7 @@ val mem_bounds =
         
 fun proginst_fun prog = inst [Type`:'observation_type` |-> Type`:bir_val_t`] prog;
 
-val speculation = false;
+val speculation = true;
 
 val obs_id = if speculation = true
 	     then "cache_speculation"

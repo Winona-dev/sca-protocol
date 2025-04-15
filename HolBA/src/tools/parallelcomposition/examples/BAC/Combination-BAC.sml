@@ -36,6 +36,8 @@ open gcc_supportLib;
 open bir_obs_modelTheory;
 open bir_obs_modelLib;
 open AliceTheory;
+
+val _ = bir_symbexec_step_execstep_spec := true;
     
 val (_, _, _, prog_tm) =
   (dest_bir_is_lifted_prog o concl)

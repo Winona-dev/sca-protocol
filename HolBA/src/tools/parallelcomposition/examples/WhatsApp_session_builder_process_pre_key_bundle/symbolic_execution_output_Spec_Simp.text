@@ -1,26 +1,43 @@
-========================================================================================================================================================
-== Testing: src/tools/parallelcomposition/examples/WhatsApp_session_builder_process_pre_key_bundle/WhatsAppsession_builder_process_pre_key_bundle.exe ==
-========================================================================================================================================================
+=================================================================================================================================================================
+== Testing: src/tools/parallelcomposition/examples/WhatsApp_session_builder_process_pre_key_bundle/WhatsAppsession_builder_process_pre_key_bundle_with_obs.exe ==
+=================================================================================================================================================================
+found 6844 blocks in program
 ===========================
-== Test running: src/tools/parallelcomposition/examples/WhatsApp_session_builder_process_pre_key_bundle/WhatsAppsession_builder_process_pre_key_bundle.exe ==
+== Test running: src/tools/parallelcomposition/examples/WhatsApp_session_builder_process_pre_key_bundle/WhatsAppsession_builder_process_pre_key_bundle_with_obs.exe ==
 == Time so far:  30 sec. ==
 ===========================
-found 6841 blocks in program
-found 6841 blocks in program
-found 6896 blocks in program
+found 6844 blocks in program
+found 6899 blocks in program
+===========================
+== Test running: src/tools/parallelcomposition/examples/WhatsApp_session_builder_process_pre_key_bundle/WhatsAppsession_builder_process_pre_key_bundle_with_obs.exe ==
+== Time so far:  60 sec. ==
+===========================
 initial state created.
 
 current number of stopped states: 0
-current number of stopped states: 79
-current number of stopped states: 229
+current number of stopped states: 10
+current number of stopped states: 78
+current number of stopped states: 151
+current number of stopped states: 175
+current number of stopped states: 239
 ===========================
-== Test running: src/tools/parallelcomposition/examples/WhatsApp_session_builder_process_pre_key_bundle/WhatsAppsession_builder_process_pre_key_bundle.exe ==
-== Time so far:  60 sec. ==
+== Test running: src/tools/parallelcomposition/examples/WhatsApp_session_builder_process_pre_key_bundle/WhatsAppsession_builder_process_pre_key_bundle_with_obs.exe ==
+== Time so far:  90 sec. ==
 ===========================
-current number of stopped states: 314
+current number of stopped states: 304
+current number of stopped states: 328
+current number of stopped states: 389
 current number of stopped states: 460
-current number of stopped states: 538
-current number of stopped states: 637
+current number of stopped states: 484
+current number of stopped states: 535
+===========================
+== Test running: src/tools/parallelcomposition/examples/WhatsApp_session_builder_process_pre_key_bundle/WhatsAppsession_builder_process_pre_key_bundle_with_obs.exe ==
+== Time so far: 120 sec. ==
+===========================
+current number of stopped states: 559
+current number of stopped states: 617
+current number of stopped states: 686
+current number of stopped states: 710
 
 
 finished exploration of all paths.
@@ -31,23 +48,23 @@ number of "assert failed" paths found: 679
 number of "no assert failed" paths found: 120
 Get predlists
 ===========================
-== Test running: src/tools/parallelcomposition/examples/WhatsApp_session_builder_process_pre_key_bundle/WhatsAppsession_builder_process_pre_key_bundle.exe ==
-== Time so far:  90 sec. ==
+== Test running: src/tools/parallelcomposition/examples/WhatsApp_session_builder_process_pre_key_bundle/WhatsAppsession_builder_process_pre_key_bundle_with_obs.exe ==
+== Time so far: 150 sec. ==
 ===========================
 Get refined predlists
 Get tree
 Get vals_list
 ===========================
-== Test running: src/tools/parallelcomposition/examples/WhatsApp_session_builder_process_pre_key_bundle/WhatsAppsession_builder_process_pre_key_bundle.exe ==
-== Time so far: 120 sec. ==
+== Test running: src/tools/parallelcomposition/examples/WhatsApp_session_builder_process_pre_key_bundle/WhatsAppsession_builder_process_pre_key_bundle_with_obs.exe ==
+== Time so far: 180 sec. ==
 ===========================
 Get sort_vals
 built a symbolic tree with value
-built purged_tree
+built a purged tree
 built sapic_process
 built a refined process with live variables
 wrote into file
 ============================
-== Test successful: src/tools/parallelcomposition/examples/WhatsApp_session_builder_process_pre_key_bundle/WhatsAppsession_builder_process_pre_key_bundle.exe ==
-== Elapsed time: 140 sec. ==
+== Test successful: src/tools/parallelcomposition/examples/WhatsApp_session_builder_process_pre_key_bundle/WhatsAppsession_builder_process_pre_key_bundle_with_obs.exe ==
+== Elapsed time: 193 sec. ==
 ============================

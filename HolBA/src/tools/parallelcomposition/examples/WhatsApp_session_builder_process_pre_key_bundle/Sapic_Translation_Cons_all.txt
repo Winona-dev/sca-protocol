@@ -1,9 +1,15 @@
+let init_pred_0='1' in 
 out(att,'15621660');
+let assert_true_cnd_3=Equal(And(R19_sy,'7'),'0') in 
+let assert_true_cnd_5=And(LessOrEqual('17676',R19_sy),LessThan(R19_sy,'28835635')) in 
 out(att,R19_sy);
 let R0_9=Load(MEM_sy,R19_sy) in 
+let assert_true_cnd_10=And(LessOrEqual('17676',Plus(R19_sy,'8')),LessThan(Plus(R19_sy,'8'),'28835635')) in 
 out(att,Plus(R19_sy,'8'));
 let R1_14=Load(MEM_sy,Plus(R19_sy,'8')) in 
 out(att,'15621664');
+let assert_true_cnd_17=Equal(And(R20_sy,'7'),'0') in 
+let assert_true_cnd_19=And(LessOrEqual('17676',Plus(R20_sy,'64')),LessThan(Plus(R20_sy,'64'),'28835635')) in 
 out(att,Plus(R20_sy,'64'));
 let R2_23=Load(MEM_sy,Plus(R20_sy,'64')) in 
 let Ver_25=verify3(R0_9,R2_23,R1_14) in 
@@ -19,12 +25,16 @@ let R22_49='4294966286' in
 0
 else out(att,'15621684');
 out(att,'15621684');
+let assert_true_cnd_52=Equal(And(R20_sy,'7'),'0') in 
+let assert_true_cnd_54=And(LessOrEqual('17676',Plus(R20_sy,'48')),LessThan(Plus(R20_sy,'48'),'28835635')) in 
 out(att,Plus(R20_sy,'48'));
 let R25_58=Load(MEM_sy,Plus(R20_sy,'48')) in 
 out(att,'15621688');
 if R25_58='0' then 
 out(att,'15622032');
 out(att,'15622032');
+let assert_true_cnd_69=Equal(And(R19_sy,'7'),'0') in 
+let assert_true_cnd_71=And(LessOrEqual('17676',Plus(R19_sy,'16')),LessThan(Plus(R19_sy,'16'),'28835635')) in 
 out(att,Plus(R19_sy,'16'));
 let R0_75=Load(MEM_sy,Plus(R19_sy,'16')) in 
 out(att,'15622036');
@@ -38,35 +48,53 @@ let R22_88='4294966294' in
 0
 else out(att,'15621692');
 out(att,'15621692');
+let assert_true_cnd_91=Equal(And(R20_sy,'7'),'0') in 
+let assert_true_cnd_93=And(LessOrEqual('17676',Plus(R20_sy,'32')),LessThan(Plus(R20_sy,'32'),'28835635')) in 
 out(att,Plus(R20_sy,'32'));
 let R23_97=Load(MEM_sy,Plus(R20_sy,'32')) in 
 out(att,'15621696');
+let assert_true_cnd_100=Equal(And(R20_sy,'7'),'0') in 
+let assert_true_cnd_102=And(LessOrEqual('17676',Plus(R20_sy,'56')),LessThan(Plus(R20_sy,'56'),'28835635')) in 
 out(att,Plus(R20_sy,'56'));
 let R21_106=Load(MEM_sy,Plus(R20_sy,'56')) in 
+let assert_true_cnd_107=And(LessOrEqual('17676',Plus(R20_sy,'64')),LessThan(Plus(R20_sy,'64'),'28835635')) in 
 out(att,Plus(R20_sy,'64'));
 let R24_111=Load(MEM_sy,Plus(R20_sy,'64')) in 
 out(att,'15621700');
+let assert_true_cnd_114=Equal(And(SP_EL0_sy,'7'),'0') in 
+let assert_true_cnd_116=And(LessOrEqual(Plus(SP_EL0_sy,'8'),'18446744073709551607'),And(Or(LessThan('17676',Plus(SP_EL0_sy,'8')),LessOrEqual(Plus('8',Plus(SP_EL0_sy,'8')),'17676')),Or(LessThan(Plus(SP_EL0_sy,'8'),'17676'),LessOrEqual('28817975',Plus(SP_EL0_sy,'8'))))) in 
+let assert_true_cnd_118=And(LessOrEqual('28835651',Plus(SP_EL0_sy,'8')),LessThan(Plus(SP_EL0_sy,'8'),'28835635')) in 
 out(att,Plus(SP_EL0_sy,'8'));
+let assert_true_cnd_122=Equal(And(SP_EL0_sy,'15'),'0') in 
 let MEM_124=Store(MEM_sy,'0',Plus(SP_EL0_sy,'8')) in 
 out(att,'15621704');
+let assert_true_cnd_127=Equal(And(SP_EL0_sy,'15'),'0') in 
 let R0_129=Plus(SP_EL0_sy,'8') in 
 out(att,'15621708');
 let Seri_133=serialize2(R25_58,R0_129) in 
 let MEM_134=Store(MEM_124,Seri_133,R0_129) in 
 out(att,'15621716');
 out(att,'15621720');
+let assert_true_cnd_147=Equal(And(SP_EL0_sy,'7'),'0') in 
+let assert_true_cnd_149=And(LessOrEqual('28835651',Plus(SP_EL0_sy,'8')),LessThan(Plus(SP_EL0_sy,'8'),'28835635')) in 
 out(att,Plus(SP_EL0_sy,'8'));
+let assert_true_cnd_153=Equal(And(SP_EL0_sy,'15'),'0') in 
 let R26_155=Load(MEM_134,Plus(SP_EL0_sy,'8')) in 
 out(att,'15621724');
 out(att,'15621728');
+let assert_true_cnd_160=Equal(And(R26_155,'7'),'0') in 
 let tmp_R1_162=Plus(R26_155,'8') in 
+let assert_true_cnd_163=And(LessOrEqual('17676',R26_155),LessThan(R26_155,'28835635')) in 
 out(att,R26_155);
 let R2_167=Load(MEM_134,R26_155) in 
 out(att,'15621732');
+let assert_true_cnd_170=Equal(And(R21_106,'7'),'0') in 
+let assert_true_cnd_172=And(LessOrEqual('17676',R21_106),LessThan(R21_106,'28835635')) in 
 out(att,R21_106);
 let R4_176=Load(MEM_134,R21_106) in 
 let R21_177=Plus(R21_106,'8') in 
 out(att,'15621736');
+let R30_180='15621740' in 
 out(att,'19908316');
 out(att,'19908320');
 out(att,'19908324');
@@ -76,6 +104,8 @@ out(att,'15621752');
 if LowCast(Ver_188,'32')='0' then 
 out(att,'15622068');
 out(att,'15622068');
+let assert_true_cnd_202=Equal(And(R19_sy,'7'),'0') in 
+let assert_true_cnd_204=And(LessOrEqual('17676',Plus(R19_sy,'16')),LessThan(Plus(R19_sy,'16'),'28835635')) in 
 out(att,Plus(R19_sy,'16'));
 let R0_208=Load(MEM_134,Plus(R19_sy,'16')) in 
 out(att,'15622072');
@@ -88,19 +118,26 @@ let R22_218='4294966294' in
 else out(att,'15621756');
 out(att,'15621756');
 out(att,'15621760');
+let assert_true_cnd_229=Equal(And(R19_sy,'7'),'0') in 
+let assert_true_cnd_231=And(LessOrEqual('17676',R19_sy),LessThan(R19_sy,'28835635')) in 
 out(att,R19_sy);
 let R0_235=Load(MEM_134,R19_sy) in 
+let assert_true_cnd_236=And(LessOrEqual('17676',Plus(R19_sy,'8')),LessThan(Plus(R19_sy,'8'),'28835635')) in 
 out(att,Plus(R19_sy,'8'));
 let R2_240=Load(MEM_134,Plus(R19_sy,'8')) in 
 out(att,'15621764');
+let assert_true_cnd_243=Equal(And(SP_EL0_sy,'15'),'0') in 
 let R1_245=Plus(SP_EL0_sy,'48') in 
 let SID_247=session(R0_235,R2_240,R1_245) in 
 let MEM_248=Store(MEM_134,SID_247,R1_245) in 
 out(att,'15621772');
 out(att,'15621776');
+let assert_true_cnd_261=Equal(And(R19_sy,'7'),'0') in 
+let assert_true_cnd_263=And(LessOrEqual('17676',Plus(R19_sy,'16')),LessThan(Plus(R19_sy,'16'),'28835635')) in 
 out(att,Plus(R19_sy,'16'));
 let R0_267=Load(MEM_248,Plus(R19_sy,'16')) in 
 out(att,'15621780');
+let assert_true_cnd_270=Equal(And(SP_EL0_sy,'15'),'0') in 
 let R1_272=Plus(SP_EL0_sy,'40') in 
 new ~KeyPair_275;
 let RAND_NUM_274=~KeyPair_275 in 
@@ -110,29 +147,43 @@ out(att,'15621792');
 if R23_97='0' then 
 out(att,'15621804');
 out(att,'15621804');
+let assert_true_cnd_297=Equal(And(R20_sy,'7'),'0') in 
+let assert_true_cnd_299=And(LessOrEqual('17676',Plus(R20_sy,'64')),LessThan(Plus(R20_sy,'64'),'28835635')) in 
 out(att,Plus(R20_sy,'64'));
 let R24_303=Load(MEM_276,Plus(R20_sy,'64')) in 
 out(att,'15621808');
+let assert_true_cnd_306=Equal(And(R19_sy,'7'),'0') in 
+let assert_true_cnd_308=And(LessOrEqual('17676',R19_sy),LessThan(R19_sy,'28835635')) in 
 out(att,R19_sy);
 let R0_312=Load(MEM_276,R19_sy) in 
 out(att,'15621812');
+let assert_true_cnd_315=Equal(And(SP_EL0_sy,'15'),'0') in 
 let R1_317=Plus(SP_EL0_sy,'32') in 
 let idPair_319=pair(R0_312,R1_317) in 
 let MEM_320=Store(MEM_276,idPair_319,R1_317) in 
 out(att,'15621820');
+let assert_true_cnd_323=Equal(And(SP_EL0_sy,'7'),'0') in 
+let assert_true_cnd_325=And(LessOrEqual('28835651',Plus(SP_EL0_sy,'32')),LessThan(Plus(SP_EL0_sy,'32'),'28835635')) in 
 out(att,Plus(SP_EL0_sy,'32'));
+let assert_true_cnd_329=Equal(And(SP_EL0_sy,'15'),'0') in 
 let R21_331=Load(MEM_320,Plus(SP_EL0_sy,'32')) in 
 out(att,'15621824');
 out(att,'15621828');
+let assert_true_cnd_344=Equal(And(SP_EL0_sy,'7'),'0') in 
+let assert_true_cnd_346=And(LessOrEqual('28835651',Plus(SP_EL0_sy,'40')),LessThan(Plus(SP_EL0_sy,'40'),'28835635')) in 
 out(att,Plus(SP_EL0_sy,'40'));
+let assert_true_cnd_350=Equal(And(SP_EL0_sy,'15'),'0') in 
 let R26_352=Load(MEM_320,Plus(SP_EL0_sy,'40')) in 
 out(att,'15621832');
+let assert_true_cnd_355=Equal(And(SP_EL0_sy,'15'),'0') in 
 let R0_357=Plus(SP_EL0_sy,'24') in 
 out(att,'15621836');
+let R30_360='15621840' in 
 out(att,'19763300');
 out(att,'19763304');
 out(att,'19763308');
 out(att,'15621844');
+let R30_370='15621848' in 
 out(att,'19852088');
 out(att,'19852092');
 out(att,'19852096');
@@ -140,34 +191,54 @@ let MasterSecret_378=ecdh7(R0_357,R25_58,R23_97,R4_176,R21_177,R26_352,R21_331) 
 out(X3DH,MasterSecret_378)
 else out(att,'15621796');
 out(att,'15621796');
+let assert_true_cnd_382=Equal(And(R20_sy,'3'),'0') in 
+let assert_true_cnd_384=And(LessOrEqual('17676',Plus(R20_sy,'24')),LessThan(Plus(R20_sy,'24'),'28835635')) in 
 out(att,Plus(R20_sy,'24'));
 out(att,'15621800');
+let assert_true_cnd_391=Equal(And(SP_EL0_sy,'3'),'0') in 
+let assert_true_cnd_393=And(LessOrEqual(Plus(SP_EL0_sy,'20'),'18446744073709551611'),And(Or(LessThan('17676',Plus(SP_EL0_sy,'20')),LessOrEqual(Plus('4',Plus(SP_EL0_sy,'20')),'17676')),Or(LessThan(Plus(SP_EL0_sy,'20'),'17676'),LessOrEqual('28817975',Plus(SP_EL0_sy,'20'))))) in 
+let assert_true_cnd_395=And(LessOrEqual('28835651',Plus(SP_EL0_sy,'20')),LessThan(Plus(SP_EL0_sy,'20'),'28835635')) in 
 out(att,Plus(SP_EL0_sy,'20'));
+let assert_true_cnd_399=Equal(And(SP_EL0_sy,'15'),'0') in 
 let MEM_401=Store(MEM_276,LowCast(R8_388,'32'),Plus(SP_EL0_sy,'20')) in 
 out(att,'15621804');
+let assert_true_cnd_404=Equal(And(R20_sy,'7'),'0') in 
+let assert_true_cnd_406=And(LessOrEqual('17676',Plus(R20_sy,'64')),LessThan(Plus(R20_sy,'64'),'28835635')) in 
 out(att,Plus(R20_sy,'64'));
 let R24_410=Load(MEM_401,Plus(R20_sy,'64')) in 
 out(att,'15621808');
+let assert_true_cnd_413=Equal(And(R19_sy,'7'),'0') in 
+let assert_true_cnd_415=And(LessOrEqual('17676',R19_sy),LessThan(R19_sy,'28835635')) in 
 out(att,R19_sy);
 let R0_419=Load(MEM_401,R19_sy) in 
 out(att,'15621812');
+let assert_true_cnd_422=Equal(And(SP_EL0_sy,'15'),'0') in 
 let R1_424=Plus(SP_EL0_sy,'32') in 
 let idPair_426=pair(R0_419,R1_424) in 
 let MEM_427=Store(MEM_401,idPair_426,R1_424) in 
 out(att,'15621820');
+let assert_true_cnd_430=Equal(And(SP_EL0_sy,'7'),'0') in 
+let assert_true_cnd_432=And(LessOrEqual('28835651',Plus(SP_EL0_sy,'32')),LessThan(Plus(SP_EL0_sy,'32'),'28835635')) in 
 out(att,Plus(SP_EL0_sy,'32'));
+let assert_true_cnd_436=Equal(And(SP_EL0_sy,'15'),'0') in 
 let R21_438=Load(MEM_427,Plus(SP_EL0_sy,'32')) in 
 out(att,'15621824');
 out(att,'15621828');
+let assert_true_cnd_451=Equal(And(SP_EL0_sy,'7'),'0') in 
+let assert_true_cnd_453=And(LessOrEqual('28835651',Plus(SP_EL0_sy,'40')),LessThan(Plus(SP_EL0_sy,'40'),'28835635')) in 
 out(att,Plus(SP_EL0_sy,'40'));
+let assert_true_cnd_457=Equal(And(SP_EL0_sy,'15'),'0') in 
 let R26_459=Load(MEM_427,Plus(SP_EL0_sy,'40')) in 
 out(att,'15621832');
+let assert_true_cnd_462=Equal(And(SP_EL0_sy,'15'),'0') in 
 let R0_464=Plus(SP_EL0_sy,'24') in 
 out(att,'15621836');
+let R30_467='15621840' in 
 out(att,'19763300');
 out(att,'19763304');
 out(att,'19763308');
 out(att,'15621844');
+let R30_477='15621848' in 
 out(att,'19852088');
 out(att,'19852092');
 out(att,'19852096');
