@@ -373,14 +373,14 @@ fun process_live_vars rset pro =
 	     else if (is_Lookup c)
 	     then
 		 if (not (is_ProcessNull live_pl) andalso is_ProcessNull live_pr andalso not (Redblackset.member(rset_pl, (mk_TVar o snd o dest_Lookup) c)))
-		 then (*(make_nolookup [((fst o dest_Lookup) c),((mk_TVar o snd o dest_Lookup) c)] live_pl)*) live_pl
+		 then live_pl
 		 else if (not (is_ProcessNull live_pr) andalso is_ProcessNull live_pl andalso not (Redblackset.member(rset_pr, (mk_TVar o snd o dest_Lookup) c)))
-	 	 then (*(make_nolookup [((fst o dest_Lookup) c),((mk_TVar o snd o dest_Lookup) c)] live_pr)*) live_pr
+	 	 then  live_pr
 		 else if not (is_ProcessNull live_pl) andalso not (is_ProcessNull live_pr)
 		 then
 		     if (Redblackset.member(rset_pl, (mk_TVar o snd o dest_Lookup) c) orelse Redblackset.member(rset_pr, (mk_TVar o snd o dest_Lookup) c))
 		     then mk_ProcessComb(c, live_pl, live_pr)
-		     else (*(make_nolookup [((fst o dest_Lookup) c),((mk_TVar o snd o dest_Lookup) c)] (mk_ProcessComb(NDC_tm, live_pl,live_pr)))*) mk_ProcessComb(NDC_tm, live_pl, live_pr)
+		     else  mk_ProcessComb(NDC_tm, live_pl, live_pr)
 		 else mk_ProcessComb(c, live_pl, live_pr)
 	     else mk_ProcessComb(c, live_pl, live_pr)) handle _ => raise ERR "process_live_vars" ("Don't know Sapic Process: " ^ (term_to_string c))
 	end

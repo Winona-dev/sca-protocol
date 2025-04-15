@@ -147,16 +147,9 @@ fun is_leaf tree = case tree of
 fun sbir_tree_sapic_process sort_vals tree =
     case tree of
 	VLeaf => ProcessNull_tm
-      | VBranch ((a,b),lstr,rstr)  => (* mk_ProcessComb((mk_CondEq ((fst(bir_exp_to_sapic_term (mk_BExp_Den a))),(fst(bir_exp_to_sapic_term b)))),(sbir_tree_sapic_process sort_vals lstr),(sbir_tree_sapic_process sort_vals rstr)) *)
-      (* mk_ProcessComb (NDC_tm,(sbir_tree_sapic_process sort_vals lstr),(sbir_tree_sapic_process sort_vals rstr)) *)
+      | VBranch ((a,b),lstr,rstr)  =>
 	let
-	    (* val _ = print ((term_to_string a)^" , "^(term_to_string b)^"\n"); *)
-
-	    (* val _ = if (!simplification) *)
-	    (* 	    then 	print ("True\n") *)
-	    (* 	    else print ("False\n") *)
 	
-		
 	    val be =  ( if (is_BExp_Den b)
 			then bir_symbexec_funcLib.symbval_bexp (bir_symbexec_treeLib.find_be_val sort_vals (dest_BExp_Den b))
 			else b ) handle _ => b;
@@ -208,8 +201,7 @@ fun sbir_tree_sapic_process sort_vals tree =
 	end
       | VNode ((a,b),str)  =>  (
 	let
-	 
-	    (* val _ = print ((term_to_string a)^" , "^(term_to_string b)^"\n"); *)
+	
 	    val (name,bir_type) = dest_BVar a;
 	    val namestr = stringSyntax.fromHOLstring name;
 	in
@@ -231,58 +223,8 @@ fun sbir_tree_sapic_process sort_vals tree =
 	    then (mk_ProcessAction ((mk_ChOut (mk_some(mk_TVar(mk_Var((ignore_num namestr),“0:int”))),(fst(bir_exp_to_sapic_term b)))),(sbir_tree_sapic_process sort_vals str)))
 	    else if ((String.isSuffix "event_true_cnd" namestr) orelse (String.isSuffix "event1" namestr) orelse (String.isSuffix "event2" namestr) orelse (String.isSuffix "event3" namestr) orelse (String.isSuffix "event_false_cnd" namestr))
 	    then (mk_ProcessAction ((mk_Event (mk_Fact(TermFact_tm,(listSyntax.mk_list ([(fst(bir_exp_to_sapic_term b))],SapicTerm_t_ty))))),(sbir_tree_sapic_process sort_vals str)))
-	   (* else if (is_BExp_Store b)
-	    then let
-		    val (mem,adr,en,value) = dest_BExp_Store b;
-		    val P = if ((is_BExp_Den adr) andalso (String.isSuffix "_a" ((stringSyntax.fromHOLstring o fst o dest_BVar o dest_BExp_Den) adr)))
-			    then (mk_ProcessAction ((mk_Insert ((fst(bir_exp_to_sapic_term adr)),(fst(bir_exp_to_sapic_term value)))),(sbir_tree_sapic_process sort_vals str)))
-			    else (sbir_tree_sapic_process sort_vals str)
-			(*if true (* ((is_BExp_Const adr) orelse (is_BExp_Den adr)) *)
-			    then
-				(mk_ProcessAction ((mk_Insert ((fst(bir_exp_to_sapic_term adr)),(fst(bir_exp_to_sapic_term value)))),(sbir_tree_sapic_process sort_vals str)))
-			    else
-				let
-				    val Fn_adr = get_bvar_fresh (bir_envSyntax.mk_BVar_string ("ADR", “BType_Imm Bit64”)); (* generate a fresh name *)
-				    val Pros = (mk_ProcessAction ((mk_Insert ((fst(bir_exp_to_sapic_term Fn_adr)),(fst(bir_exp_to_sapic_term value)))),(sbir_tree_sapic_process sort_vals str)))
-					       
-				in
-				    (mk_ProcessComb(mk_Let ((fst(bir_exp_to_sapic_term Fn_adr)),(fst(bir_exp_to_sapic_term adr))),Pros,(ProcessNull_tm)))
-				    
-				end*)
-		in
-		    P
-		end	 
-	    else if (is_BExp_Load b)
-	    then let
-		    val (mem,adr,en,size) = dest_BExp_Load b;
-		    val P = if ((is_BExp_Den adr) andalso (String.isSuffix "_a" ((stringSyntax.fromHOLstring o fst o dest_BVar o dest_BExp_Den) adr)))
-			    then (mk_ProcessComb(mk_Lookup ((fst(bir_exp_to_sapic_term adr)),(sapic_term_to_var namestr)),(sbir_tree_sapic_process sort_vals str),(ProcessNull_tm)))
-			    else (sbir_tree_sapic_process sort_vals str)
-	(*if true (* ((is_BExp_Const adr) orelse (is_BExp_Den adr)) *)
-			    then
-				(mk_ProcessComb(mk_Lookup ((fst(bir_exp_to_sapic_term adr)),(sapic_term_to_var namestr)),(sbir_tree_sapic_process sort_vals str),(ProcessNull_tm)))
-			    else
-				let	    
-				    val Fn_adr = get_bvar_fresh (bir_envSyntax.mk_BVar_string ("ADR", “BType_Imm Bit64”)); (* generate a fresh name *)
-				    val Pros = (mk_ProcessComb(mk_Lookup ((fst(bir_exp_to_sapic_term Fn_adr)),(sapic_term_to_var namestr)),(sbir_tree_sapic_process sort_vals str),(ProcessNull_tm)))
-				in
-				    (mk_ProcessComb(mk_Let ((fst(bir_exp_to_sapic_term Fn_adr)),(fst(bir_exp_to_sapic_term adr))),Pros,(ProcessNull_tm)))
-				end*)
-		in
-		    P
-		end*)
 	    else if (is_BExp_Cast b)
-		(*let
-		    val (castt, subexp, sz) = (dest_BExp_Cast) b;
-		in
-		    if (is_BExp_Load subexp)
-		    then let
-			    val (mem,adr,en,size) = dest_BExp_Load subexp;
-			in
-			    (mk_ProcessComb(mk_Lookup ((fst(bir_exp_to_sapic_term adr)),(sapic_term_to_var namestr)),(sbir_tree_sapic_process sort_vals str),(ProcessNull_tm)))
-			end
-		    else (mk_ProcessComb(mk_Let ((fst(bir_exp_to_sapic_term (mk_BExp_Den a))),(fst(bir_exp_to_sapic_term b))),(sbir_tree_sapic_process sort_vals str),(ProcessNull_tm)))
-		 end*) then (sbir_tree_sapic_process sort_vals str)
+	    then (sbir_tree_sapic_process sort_vals str)
 	    else if (String.isSuffix "observe_exp" namestr)
 	    then (if (not (!simplification))
 		    then (mk_ProcessAction ((mk_ChOut (mk_some(mk_TVar(mk_Var(“"att"”,“0:int”))),(fst(bir_exp_to_sapic_term b)))),(sbir_tree_sapic_process sort_vals str)))
@@ -304,30 +246,7 @@ fun sbir_tree_sapic_process sort_vals tree =
 	    then(sbir_tree_sapic_process sort_vals str)
 	    else (mk_ProcessComb(mk_Let ((fst(bir_exp_to_sapic_term (mk_BExp_Den a))),(fst(bir_exp_to_sapic_term b))),(sbir_tree_sapic_process sort_vals str),(ProcessNull_tm)))
 	end)
-			      (*   handle _ => raise ERR "sbir_tree_sapic_process" ("cannot do it "^(case tree of
-												       VLeaf => "Leaf"
-												     | VBranch ((a,b),lstr,rstr)  =>  ((term_to_string a)^" , "^(term_to_string b))
-												     | VNode ((a,b),str)  =>  ((term_to_string a)^" , "^(term_to_string b))
-										 ));
-			 
-
-
- val exp = ``
-	       (BExp_Store
-		    (BExp_Den (BVar "MEM" (BType_Mem Bit64 Bit8)))
-		    (BExp_Den (BVar "ADDR1" (BType_Imm Bit64)))
-		    BEnd_BigEndian
-		    (BExp_Const (Imm128 (42w :word128))))
-	       ``;
- val b = ``
-	       (BExp_Load (BExp_Den (BVar "MEM" (BType_Mem Bit64 Bit8)))
-			  (BExp_Den (BVar "R1" (BType_Imm Bit64)))
-				       BEnd_LittleEndian Bit64)``
-
-val namestr = "R1";
-
- *)
-
+			    
 end(*local*)
 
 end (* struct *)

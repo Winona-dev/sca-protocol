@@ -94,38 +94,7 @@ val P1 = [“"T"”, “"f4"”, “"f5"”];
 val P2 = [“"F"”, “"f7"”, “"f8"”];
 val P3 = [“"F"”, “"f7"”, “"f9"”];
 val lsts= [P1,P2,P3]	 
-
-fun predlist_to_tree ([[]]: term list list) = Leaf
-  | predlist_to_tree ([]: term list list) = Leaf
-  | predlist_to_tree (lst: term list list) =    
-    if (is_true_list (List.map (fn ls => (null ls)) lst)) then Leaf
-    else
-	let
-	val (empty, notempty) =
-	    if ((exists is_false (List.map (fn ls => (null ls)) lst)) andalso (exists is_true (List.map (fn ls => (null ls)) lst)))
-	    then List.partition (fn ls => (null ls)) lst
-	    else ([[]],lst)
-		    
-	val (head_eq, head_noteq) = if ((not o null o hd) notempty)
-				    then List.partition (fn ls => (identical ((hd o hd) notempty) (hd ls))) notempty
-				    else List.partition (fn ls => (identical ((hd o hd o rev) notempty) (hd ls))) notempty;
-    in
-	    if (null head_noteq)
-	    then
-		    (Node ((hd (hd head_eq)), (predlist_to_tree (List.map (fn ls => (tl ls)) head_eq))))handle _ => raise ERR "predlist_to_tree" ("cannot do it "^(String.concat(List.map (fn ls => ("\n"^((int_to_string o List.length) ls))) head_eq)))
-	    else
-		if ((not o null) head_eq) then
-		    if ((not o null o hd) head_eq)
-		    then
-			Branch ((hd (hd head_eq)),(predlist_to_tree (List.map (fn ls => (tl ls)) head_eq)),(predlist_to_tree (List.map (fn ls => (tl ls)) head_noteq)))
-		    else predlist_to_tree head_noteq
-		else predlist_to_tree head_noteq
-		     
-    end
-*)
-(*SymbValBE (bv, _)
-val bv = “BVar "sy_R30" (BType_Imm Bit64)”
-Redblackset.empty Term.compare
+	  
 *)	
 (*Find bir expression*)
 fun find_be_val vals_list bv =
@@ -174,32 +143,7 @@ fun areIdentical bv x =
 
 	      
 fun trmunion(xs: term list, ys: term list) = foldl (fn (x, acc) => if List.exists (fn y => (identical x y)) acc then acc else x::acc) ys xs
-(*
-val bv = “"bv"”
-val be = ``
-	       (BExp_Store
-		    (BExp_Den (BVar "MEM" (BType_Mem Bit64 Bit8)))
-		    (BExp_Den (BVar "ADDR1" (BType_Imm Bit64)))
-		    BEnd_BigEndian
-		    (BExp_Const (Imm128 (42w :word128))))
-	       ``;
-
-	       (List.map (fn x =>
-											   if (bir_envSyntax.is_BVar x)
-											   then (bir_expSyntax.mk_BExp_Den x)
-											   else (x)) trms)
-	 
-val be = “New_session (BVar "253_SKey" (BType_Imm Bit64)) (BVar "B" (BType_Imm Bit64))”
-Term.term_eq be bv
-val bv = “BVar "253_SKey" (BType_Imm Bit64)”
-
-HOL_Interactive.toggle_quietdec();
-open Redblackset;
-HOL_Interactive.toggle_quietdec();
-Redblackset.union
-strip_comb exp
-``(bir_vars_of_exp ^exp)``;
-*)					     
+					     
 fun liveVars tr = 
     case tr of
 	VLeaf => ((Redblackset.empty Term.compare): term Redblackset.set)
@@ -260,11 +204,6 @@ fun purge_tree tr =
 
 
 
-(* fun cfg_tree tr = *)
-(*     case tr of *)
-(* 	VLeaf =>  *)
-(*       | VNode ((bv,be), subtr) =>  *)
-(*       | VBranch ((bv,be), subtr1, subtr2) =>  *)
 					     
 end (* local *)
 
