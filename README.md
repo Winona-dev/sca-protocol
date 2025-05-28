@@ -1,7 +1,10 @@
-## Beyond Correctness: Automated Side-Channel Analysis of Cryptographic Protocols Implementations via Binary Verification
+# Automated Side-Channel Analysis of Cryptographic Protocols Implementations via Binary Verification
 
-This repository contains the implementation of our framework which is built on top of CryptoBap framework. Our toolchain integrates four key components: 
+This repository consists of two main components: the first is our framework, implemented based on the CryptoBap framework, and the second is a proof-of-concept attack implementation built upon Flush+Flush, modified to operate on macOS. We explain each component in detail separately.
 
+## HolBA
+
+Our toolchain integrates four key components:
 
 - **Symbolic Execution:**
 
@@ -21,7 +24,7 @@ This repository contains the implementation of our framework which is built on t
 
 	- Demonstrating the real-world applications of our methodology with analyzing the BAC protocol used in e-passports and WhatsApp, the world’s most widely used messaging application. The <a href="https://github.com/Winona-dev/sca-protocol/tree/master/HolBA/src/tools/parallelcomposition/examples">examples</a> contains essential files for extracting the Sapic model of each component, along with the results from executing the model using ProVerif, Tamarin, and DeepSec tools. 
 		
-## How to setup and compile
+### How to setup and compile
 
 
 1. Establish the HolBA framework according to the guidelines provided in <a href="https://github.com/Winona-dev/sca-protocol/blob/master/HolBA/README.md">HolBA-README.md</a>. There is no need to clone HolBA separately; a version that is compatible with our framework is available in our repository.
@@ -31,7 +34,7 @@ This repository contains the implementation of our framework which is built on t
 3. Run the `make src/tools/parallelcomposition/examples/subdirectory/your-chosen-example.sml_run` command for your selected example while in the <a href="https://github.com/Winona-dev/sca-protocol/tree/master/HolBA">HolBA</a> directory. The model you extract will be saved in the ***Sapic_Translation.txt*** file located in the relevant example subdirectory. Ensure you define the cryptographic primitives’ assumptions and security properties in the extracted model before assessing it with the Sapic toolchain. For comprehensive instructions on this process and to see the outcomes we received from the Sapic toolchain backends, consult <a href="https://github.com/Winona-dev/sca-protocol/tree/master/HolBA/src/tools/parallelcomposition/examples/Results">Results</a>.
 
 
-## Running example
+### Running example
 
 The example is set for execution and demonstrates our core functionality using predefined inputs, files, and expected results. Now, we will clarify this example to help users create their own based on the supplied foundation. To this end, we will implement the Basic Access Control protocol as described in our paper.
 
@@ -54,3 +57,64 @@ The example is set for execution and demonstrates our core functionality using p
 	- `make src/tools/parallelcomposition/examples/BAC/Combination-BAC.sml_run`
 
 6. You can later access the extracted Sapic model in the ***Sapic_Translation.txt*** file within the <a href="https://github.com/Winona-dev/sca-protocol/tree/master/HolBA/src/tools/parallelcomposition/examples/BAC">BAC</a> directory.
+
+
+## Flush + Flush
+
+For the proof-of-concept attack implementation targeting the WhatsApp Desktop application, we modified the Prime+Probe attack technique, originally provided by Flush+Flush, to function effectively on macOS. 
+Our experiments were conducted on a 2019 MacBook Pro equipped with an Intel Core i7-9750H processor (6 cores, 2.6 GHz) and 16 GB of RAM, running macOS Sonoma Version 14.1.2.
+We adjusted the Prime+Probe attack in the the <a href="https://github.com/Winona-dev/sca-protocol/tree/master/flush_flush/sc/pp">sc/pp</a> directory to monitor the function that generates a new secure session from a shared library named `session_builder_process_pre_key_bundle`.
+The code is expected to know the appropriate addresses: one for starting a secure session (session_builder) and another for the instruction triggered when using a one-time pre-key to create the master secret key for that session (OTPK_exists).
+
+### Attack description
+
+The code works for **Prime+Probe Cache Timing Attack** as follows:
+
+1. **Primes:** The attacker accesses specific addresses (session_builder, OTPK_exists) repeatedly, populating those cache sets.
+2. **Waits** briefly (via usleep()).
+3. **Probes:** The attacker re-accesses the same addresses and measures the response time.
+    - If **slow**, they were evicted (i.e., the victim accessed an overlapping set).
+    - If **fast**, the cache lines are untouched.
+
+For example, for the following output:
+
+```
+[session_builder] Δt =    244: 
+[OTPK_exists]     Δt =     98: 
+
+[session_builder] Δt =    345: #
+[OTPK_exists]     Δt =    151: 
+
+[session_builder] Δt =    385: #
+[OTPK_exists]     Δt =    146: 
+
+[session_builder] Δt =    247: 
+[OTPK_exists]     Δt =  21626: ##################################################
+```
+
+The OTPK_exists suddenly takes much longer, which suggests that it got evicted, and the victim accessed memory mapping to the same cache set as OTPK_exists.
+
+The steps the attacker performs are as follows:
+
+1. Attacker `mmaps` the application with shared libraries.
+2. Chooses addresses that map to known cache sets, in our case `session_builder_process_pre_key_bundle` (session_builder), and the specific branch (OTPK_exists) we are interested in.
+3. Fills those sets via repeated access (prime).
+4. Waits for the victim to potentially run.
+5. Re-measures access latency (probe).
+6. Logs and interprets results.
+
+
+### How to run
+
+Run the <a href="https://github.com/Winona-dev/sca-protocol/tree/master/flush_flush/sc/pp/spy.c">spy script</a> like this:
+
+```
+cd sc/pp
+make
+./spy /Applications/WhatsApp.app/Contents/MacOS/WhatsApp 0x1ddeb4b 0x1ddec64 # Adjust with suitable addresses
+```
+
+This script exports timing data to a CSV file (timing_log.csv).
+ You can then use the Python script <a href="https://github.com/Winona-dev/sca-protocol/tree/master/flush_flush/sc/pp/show_result.py">show_result.py</a> to generate a plotted chart with:
+- **x-axis**: Time (in microseconds)
+- **y-axis**: Measured access latency (Δt)
