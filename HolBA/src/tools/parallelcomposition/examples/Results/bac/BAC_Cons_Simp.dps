@@ -1,98 +1,74 @@
 free att.
 free s1032.
+free s1064.
 free s1288.
 free s1544.
+free s16.
 free s1800.
 free s2056.
+free s2088.
 free s2312.
-free s240.
-free s244.
-free s248.
-free s252.
-free s256.
+free s24.
 free s2568.
-free s2584.
-free s2592.
-free s260.
 free s2600.
 free s2608.
 free s264.
-free s268.
-free s272.
-free s276.
-free s284.
-free s288.
-free s292.
 free s296.
-free s300.
-free s304.
-free s312.
-free s316.
 free s32.
-free s324.
-free s328.
-free s332.
-free s344.
-free s348.
-free s356.
-free s360.
-free s364.
-free s368.
-free s376.
-free s380.
-free s384.
-free s388.
-free s396.
-free s400.
+free s320.
+free s40.
 free s404.
-free s408.
-free s412.
-free s416.
-free s420.
-free s424.
-free s428.
-free s432.
-free s440.
-free s444.
 free s448.
-free s452.
-free s460.
-free s464.
-free s472.
-free s476.
-free s480.
-free s484.
-free s488.
-free s492.
-free s496.
-free s500.
-free s508.
-free s512.
+free s468.
 free s520.
 free s524.
 free s532.
 free s540.
+free s548.
+free s552.
 free s776.
 free s8.
-free SP_EL0_sy.
-free challenge.
-
-
-
+free s808.
 fun And/2.
 fun IfThenElse/3.
 fun LeftShift/2.
 fun LessOrEqual/2.
 fun Load/2.
+fun MEM_122/0.
+fun MEM_241/0.
+fun MEM_333/0.
+fun MEM_403/0.
+fun MEM_sy/0.
 fun Minus/2.
 fun Or/2.
 fun Plus/2.
-fun s0/0.
-fun s1/0.
+fun R0_145/0.
+fun R0_169/0.
+fun R0_185/0.
+fun R0_217/0.
+fun R0_356/0.
+fun R0_95/0.
+fun R0_sy/0.
+fun R1_sy/0.
+fun R29_sy/0.
+fun R30_sy/0.
+fun RightShift/2.
+fun SP_EL0_sy/0.
+fun SignedLessOrEqual/2.
+fun SignedLessThan/2.
+fun Store/3.
+fun UnsignedCast/2.
+fun challenge/0.
 fun conc3/3.
 fun enc/2.
+fun hash2/2.
+fun hkdf/2.
 fun mac/2.
-
+fun okay/0.
+fun pair/2.
+fun senc/2.
+fun s0/0.
+fun s1/0.
 
 reduc   pars12((x_1, x_2)) = x_1.
 reduc   dec(enc(x_1, x_2), x_2) -> x_1.
@@ -104,7 +80,7 @@ reduc   compare(x, x) = s0.
 reduc   compare_mac(x, x) = s0.
 reduc   compare_nonces(x, x) = s0.
 reduc   Equal(x, x) = s1.
-reduc 	Not(s0) = s1.
+reduc     Not(s0) = s1.
 
 // Description of the reader role
 
@@ -120,63 +96,97 @@ let reader(k_e,k_m) =
 // Extracted passport role
 
 let passport(ke_1, km_1)=
+    let SP_EL0_5_1=Minus(SP_EL0_sy, s2608) in
+    let MEM_22_1=Store(Store(MEM_sy, R29_sy, SP_EL0_5_1), R30_sy,
+                       Plus(SP_EL0_5_1, s8)) in
+    let MEM_39_1=Store(MEM_22_1, R0_sy, Plus(SP_EL0_5_1, s24)) in
+    let MEM_52_1=Store(MEM_39_1, R1_sy, Plus(SP_EL0_5_1, s16)) in
+    let R0_55_1=s0 in
+    let R0_64_1=Load(MEM_52_1, s0) in
+    let R1_73_1=Load(MEM_52_1, R0_64_1) in
+    let MEM_86_1=Store(MEM_52_1, R1_73_1, Plus(SP_EL0_5_1, s2600)) in
+    let R1_89_1=s0 in
     in(att,a_92_1);
+    let MEM_106_1=Store(MEM_86_1, LowCast(R0_95, s8),
+                        Plus(SP_EL0_5_1, s40)) in
     let R2_111_1=Minus(SP_EL0_sy, s2568) in
     let R0_114_1=s0 in
     let R1_117_1=s0 in
     let check_121_1=compare(a_92_1, challenge) in
     let ProcState_Z_129_1=Equal(LowCast(check_121_1, s32), s0) in
+    out(att,Equal(LowCast(check_121_1, s32), s0));
     if LowCast(check_121_1, s32)=s0 then 
-        (new a136_nonce_1;
-         let RAND_NUM_135_1=a136_nonce_1 in
-		let R0_155_1=Minus(SP_EL0_sy, s2312) in
-         out(att,RAND_NUM_135_1); 
-         in(att,a_160_1);
-         let pars12_176_1=pars12(a_160_1) in
-         let R0_195_1=Minus(SP_EL0_sy, s2056) in
-         let mac_208_1=mac(pars12_176_1, km_1) in
-         let R1_227_1=Minus(SP_EL0_sy, s1800) in
-         let R0_232_1=Minus(SP_EL0_sy, s1544) in
-         let cmpmac_234_1=compare_mac(pars22(a_160_1), mac_208_1) in
-         let ProcState_Z_242_1=Equal(LowCast(cmpmac_234_1, s32), s0) in
-         if LowCast(cmpmac_234_1, s32)=s0 then 
+        (out(att,s320);
+         new nonce_142_1;
+         let RAND_NUM_141_1=nonce_142_1 in
+         let MEM_156_1=Store(MEM_122, LowCast(R0_145, s8),
+                             Plus(SP_EL0_5_1, s296)) in
+         let R0_161_1=Minus(SP_EL0_sy, s2312) in
+         out(att,RAND_NUM_141_1);
+         in(att,a_166_1);
+         let MEM_180_1=Store(MEM_156_1, LowCast(R0_169, s8),
+                             Plus(SP_EL0_5_1, s552)) in
+         let pars12_182_1=pars12(a_166_1) in
+         let MEM_196_1=Store(MEM_180_1, LowCast(R0_185, s8),
+                             Plus(SP_EL0_5_1, s808)) in
+         let R0_201_1=Minus(SP_EL0_sy, s2056) in
+         let R1_212_1=Load(MEM_196_1, Plus(SP_EL0_5_1, s16)) in
+         let mac_214_1=mac(pars12_182_1, km_1) in
+         let MEM_228_1=Store(MEM_196_1, LowCast(R0_217, s8),
+                             Plus(SP_EL0_5_1, s1064)) in
+         let R1_233_1=Minus(SP_EL0_sy, s1800) in
+         let R0_238_1=Minus(SP_EL0_sy, s1544) in
+         let cmpmac_240_1=compare_mac(pars22(a_166_1), mac_214_1) in
+         let ProcState_Z_248_1=Equal(LowCast(cmpmac_240_1, s32), s0) in
+         out(att,Equal(LowCast(cmpmac_240_1, s32), s0));
+         if LowCast(cmpmac_240_1, s32)=s0 then 
              (out(att,s404);
-              let R3_251_1=Minus(SP_EL0_sy, s776) in
-              let R2_256_1=Minus(SP_EL0_sy, s1032) in
-              let R1_261_1=Minus(SP_EL0_sy, s1288) in
-              let R0_266_1=Minus(SP_EL0_sy, s2056) in
-              let Dec_285_1=dec(pars12_176_1, ke_1) in
-              let Pars13_288_1=pars13(Dec_285_1) in
-              let Pars23_289_1=pars23(Dec_285_1) in
-              let ProcState_Z_295_1=Equal(LowCast(Dec_285_1, s32), s0) in
-              if LowCast(Dec_285_1, s32)=s0 then
+              let R3_263_1=Minus(SP_EL0_sy, s776) in
+              let R2_268_1=Minus(SP_EL0_sy, s1032) in
+              let R1_273_1=Minus(SP_EL0_sy, s1288) in
+              let R0_278_1=Minus(SP_EL0_sy, s2056) in
+              let R1_295_1=Load(MEM_241, Plus(SP_EL0_5_1, s24)) in
+              let Dec_297_1=dec(pars12_182_1, ke_1) in
+              let Pars13_300_1=pars13(Dec_297_1) in
+              let Pars23_301_1=pars23(Dec_297_1) in
+              let ProcState_Z_307_1=Equal(LowCast(Dec_297_1, s32), s0) in
+              out(att,Equal(LowCast(Dec_297_1, s32), s0));
+              if LowCast(Dec_297_1, s32)=s0 then 
                   (out(att,s532);
-                   let R0_302_1=s0 in
+                   let R0_320_1=s0 in
                    0
                    else out(att,s448);
-                        let R1_307_1=Minus(SP_EL0_sy, s2312) in
-                        let R0_312_1=Minus(SP_EL0_sy, s1032) in
-                        let cmpnonce_314_1=compare_nonces(Pars23_289_1, RAND_NUM_135_1) in
-                        let ProcState_Z_322_1=Equal(LowCast(cmpnonce_314_1, s32), s0) in
-                        if LowCast(cmpnonce_314_1, s32)=s0 then 
-                            (new a329_nonce_1;
-                             let RAND_NUM_328_1=a329_nonce_1 in
-                             out(att,s472);
-                             let R3_348_1=Minus(SP_EL0_sy, s264) in
-                             let R2_353_1=Minus(SP_EL0_sy, s520) in
-                             let R1_358_1=Minus(SP_EL0_sy, s1288) in
-                             let R0_363_1=Minus(SP_EL0_sy, s2312) in
-                             let Conc_378_1=conc3(Pars23_289_1, RAND_NUM_328_1, Pars13_288_1) in
-                             let Enc_381_1=enc(Conc_378_1, ke_1) in
-                             let R0_387_1=Minus(SP_EL0_sy, s264) in
-                             let mac_400_1=mac(Enc_381_1, km_1) in
-                             out(att,(Enc_381_1,mac_400_1))
+                        let R1_325_1=Minus(SP_EL0_sy, s2312) in
+                        let R0_330_1=Minus(SP_EL0_sy, s1032) in
+                        let cmpnonce_332_1=compare_nonces(Pars23_301_1, RAND_NUM_141_1) in
+                        let ProcState_Z_340_1=Equal(LowCast(cmpnonce_332_1, s32), s0) in
+                        out(att,Equal(LowCast(cmpnonce_332_1, s32), s0));
+                        if LowCast(cmpnonce_332_1, s32)=s0 then 
+                            (out(att,s468);
+                             new nonce_353_1;
+                             let RAND_NUM_352_1=nonce_353_1 in
+                             let MEM_367_1=Store(MEM_333, LowCast(R0_356, s8),
+                                                 Plus(SP_EL0_5_1, s2088)) in
+                             let R3_372_1=Minus(SP_EL0_sy, s264) in
+                             let R2_377_1=Minus(SP_EL0_sy, s520) in
+                             let R1_382_1=Minus(SP_EL0_sy, s1288) in
+                             let R0_387_1=Minus(SP_EL0_sy, s2312) in
+                             let R3_400_1=Load(MEM_367_1, Plus(SP_EL0_5_1, s24)) in
+                             let Conc_402_1=conc3(Pars23_301_1, RAND_NUM_352_1, Pars13_300_1) in
+                             let Enc_405_1=enc(Conc_402_1, ke_1) in
+                             out(att,Enc_405_1);
+                             let R0_411_1=Minus(SP_EL0_sy, s264) in
+                             let R1_422_1=Load(MEM_403, Plus(SP_EL0_5_1, s16)) in
+                             let mac_424_1=mac(Enc_405_1, km_1) in
+                             out(att,mac_424_1)
                              else out(att,s524);
-                                  let R0_404_1=s0 in
+                                  let R0_428_1=s0 in
                                   0
                                   else out(att,s540);
-                                       let R0_407_1=s0 in
-                                       0)))).
+                                       let R0_431_1=s0 in
+                                       0
+                                       else out(att,s548))))).
+
 
 // Check unlinkability in the presence of architectural leakage
 

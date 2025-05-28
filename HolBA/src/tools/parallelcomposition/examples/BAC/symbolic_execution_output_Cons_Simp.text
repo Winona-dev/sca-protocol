@@ -23,7 +23,8 @@ built a symbolic tree with value
 built a purged tree
 built sapic_process
 wrote into file
+./scripts/run-test.sh: line 57: printf: 7.94615912437439: invalid number
 =====================================================================================
 == Test successful: src/tools/parallelcomposition/examples/BAC/Combination-BAC.exe ==
-== Elapsed time:   8 sec.                                                          ==
+== Elapsed time:   7 sec.                                                          ==
 =====================================================================================

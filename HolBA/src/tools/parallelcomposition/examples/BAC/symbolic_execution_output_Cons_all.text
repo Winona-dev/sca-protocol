@@ -22,7 +22,8 @@ Get sort_vals
 built a symbolic tree with value
 built sapic_process
 wrote into file
+./scripts/run-test.sh: line 57: printf: 8.961766242980957: invalid number
 =====================================================================================
 == Test successful: src/tools/parallelcomposition/examples/BAC/Combination-BAC.exe ==
-== Elapsed time:   8 sec.                                                          ==
+== Elapsed time:   9 sec.                                                          ==
 =====================================================================================

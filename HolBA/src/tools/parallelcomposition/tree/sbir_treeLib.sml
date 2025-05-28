@@ -100,10 +100,9 @@ val lsts= [P1,P2,P3]
 fun find_be_val vals_list bv =
     let
 	val find_val = List.find (fn (a,_) => Term.term_eq a bv) vals_list;
-	(* val symbv = ((snd o Option.valOf) find_val) handle _ => raise ERR "find_be_val" ("cannot find symbolic value for "^(term_to_string bv)^"\n"); *)
 	val (bv_str, _) = bir_envSyntax.dest_BVar_string bv;
-	val fr = get_bvar_fresh (bir_envSyntax.mk_BVar_string (bv_str, “BType_Bool”)); (* generate a fresh variable *)
-	val symbv = ((snd o Option.valOf) find_val); (* handle _ => SymbValBE (fr, Redblackset.empty Term.compare) ; *)
+	val fr = get_bvar_fresh (bir_envSyntax.mk_BVar_string (bv_str, “BType_Bool”)); 
+	val symbv = ((snd o Option.valOf) find_val);
 	val exp =
 	    case symbv of
 		SymbValBE (x, _) => x
@@ -160,7 +159,6 @@ fun liveVars tr =
 									       end
 									       
 				 );
-	    (*raise ERR "liveVars " (term_to_string be);*)
 	    val strLive = List.map (fn x => (fst o bir_envSyntax.dest_BVar) x) exprLive;
 	    val combinedLive = Redblackset.addList(subtrLive,strLive);
         in
@@ -170,7 +168,6 @@ fun liveVars tr =
 	let
             val leftLive = liveVars subtr1;
             val rightLive = liveVars subtr2;
-            (*val exprLive = bir_exp_helperLib.get_birexp_vars be; NOTE:As we removed branch exp in model, we do not add their vars here*)
 	    val combinedLive = Redblackset.union(leftLive,rightLive);
         in
             (combinedLive: term Redblackset.set)
@@ -185,21 +182,8 @@ fun purge_tree tr =
 	    if ((identical ((fst o valOf o hd_of_tree) subtr) bv) andalso (identical ((snd o valOf o hd_of_tree) subtr) be))
 	    then (purge_tree subtr)
 	    else VNode ((bv,be), (purge_tree subtr))
-		(*if (Redblackset.member((liveVars subtr),((fst o bir_envSyntax.dest_BVar) bv))) then
-		VNode ((bv,be), (purge_tree subtr))
-	    else
-		let
-		    val _ = print ((term_to_string bv)^" not exists \n")
-		in
-		    (purge_tree subtr)
-		end*)
 	else VNode ((bv,be), (purge_tree subtr))
-      | VBranch ((bv,be), subtr1, subtr2) =>
-	if (identical be “BExp_Const (Imm1 1w)”)
-	then (purge_tree subtr1)
-	else if (identical be “BExp_Const (Imm1 0w)”)
-	then (purge_tree subtr2)
-	else VBranch ((bv,be), (purge_tree subtr1), (purge_tree subtr2))
+      | VBranch ((bv,be), subtr1, subtr2) => VBranch ((bv,be), (purge_tree subtr1), (purge_tree subtr2))
 	     
 
 

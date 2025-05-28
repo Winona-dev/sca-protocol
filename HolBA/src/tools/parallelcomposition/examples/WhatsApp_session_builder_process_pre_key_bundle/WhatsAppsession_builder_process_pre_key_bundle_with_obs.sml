@@ -221,7 +221,7 @@ val _ = if full = false then
 		    
 		val _ = print ("built a refined process with live variables\n");
 
-		val _ =  ( write_sapic_to_file o process_to_string) refined_process;	    
+		val _ =  ( write_sapic_to_file o process_to_string) process_with_live_vars;	    
 	    in
 		print ("wrote into file\n")
 	    end
