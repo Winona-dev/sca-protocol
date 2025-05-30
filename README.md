@@ -22,7 +22,7 @@ Our toolchain integrates four key components:
 
 - **Analysis Examples:**
 
-	- Demonstrating the real-world applications of our methodology with analyzing the BAC protocol used in e-passports and WhatsApp, the world’s most widely used messaging application. The <a href="https://github.com/Winona-dev/sca-protocol/tree/master/HolBA/src/tools/parallelcomposition/examples">examples</a> contains essential files for extracting the Sapic model of each component, along with the results from executing the model using ProVerif, Tamarin, and DeepSec tools. 
+	- Demonstrating the real-world applications of our methodology by analyzing the BAC protocol used in e-passports and WhatsApp, the world’s most widely used messaging application. The <a href="https://github.com/Winona-dev/sca-protocol/tree/master/HolBA/src/tools/parallelcomposition/examples">examples</a> contain essential files for extracting the Sapic model of each component, along with the results from executing the model using ProVerif, Tamarin, and DeepSec tools. 
 		
 ### How to setup and compile
 
@@ -40,7 +40,7 @@ The example is set for execution and demonstrates our core functionality using p
 
 1. Begin by putting the binary implementation file for the BAC protocol in the <a href="https://github.com/Winona-dev/sca-protocol/tree/master/HolBA/src/tools/symbexecbin">symbexecbin</a> directory.
 
-2. Lift either the entire binary file to a BIR program (use `read_disassembly_file_regions` function) or transpile specific code fragments to BIR (use `read_disassembly_file_regions_filter` function) by specifying code fragments as inputs in the <a href="https://github.com/Winona-dev/sca-protocol/blob/master/HolBA/src/tools/symbexecbin/AliceScript.sml">script file</a> dedicated to BAC protocol.
+2. Lift either the entire binary file to a BIR program (use `read_disassembly_file_regions` function) or transpile specific code fragments to BIR (use `read_disassembly_file_regions_filter` function) by specifying code fragments as inputs in the <a href="https://github.com/Winona-dev/sca-protocol/blob/master/HolBA/src/tools/symbexecbin/AliceScript.sml">script file</a> dedicated to the BAC protocol.
 
 3. Specify the program-under-verification’s entry and exit addresses in the <a href="https://github.com/Winona-dev/sca-protocol/tree/master/HolBA/src/tools/parallelcomposition/examples/BAC/Combination-BAC.sml">Combination-BAC</a> file, as outlined below:
 
@@ -63,8 +63,8 @@ The example is set for execution and demonstrates our core functionality using p
 
 For the proof-of-concept attack implementation targeting the WhatsApp Desktop application, we modified the Prime+Probe attack technique, originally provided by Flush+Flush, to function effectively on macOS. 
 Our experiments were conducted on a 2019 MacBook Pro equipped with an Intel Core i7-9750H processor (6 cores, 2.6 GHz) and 16 GB of RAM, running macOS Sonoma Version 14.1.2.
-We adjusted the Prime+Probe attack in the the <a href="https://github.com/Winona-dev/sca-protocol/tree/master/flush_flush/sc/pp">sc/pp</a> directory to monitor the function that generates a new secure session from a shared library named `session_builder_process_pre_key_bundle`.
-The code is expected to know the appropriate addresses: one for starting a secure session (session_builder) and another for the instruction triggered when using a one-time pre-key to create the master secret key for that session (OTPK_exists).
+We adjusted the Prime+Probe attack in the <a href="https://github.com/Winona-dev/sca-protocol/tree/master/flush_flush/sc/pp">sc/pp</a> directory to monitor the function that generates a new secure session from a shared library named `session_builder_process_pre_key_bundle`.
+The code is expected to know the appropriate addresses: one for starting a secure session (session_builder_process_pre_key_bundle) and another for the instruction triggered when using a one-time pre-key to create the master secret key for that session (OTPK_exists).
 
 ### Attack description
 
