@@ -1,6 +1,6 @@
-# Automated Side-Channel Analysis of Cryptographic Protocols Implementations via Binary Verification
+## Automated Side-Channel Analysis of Cryptographic Protocols Implementations via Binary Verification
 
-This repository consists of two main components: the first is our framework, which is implemented based on the CryptoBap framework, extending the HolBA framework; the second is a proof-of-concept attack implementation built upon Flush+Flush, modified to operate on macOS. We explain each component in detail separately.
+This repository consists of two main components: the first is our framework, which is implemented based on the CryptoBap framework, extending the HolBA framework; the second is a proof-of-concept attack implementation built upon Flush+Flush framework, modified to operate on macOS. We explain each component in detail separately.
 
 ## HolBA
 
@@ -64,7 +64,7 @@ The example is set for execution and demonstrates our core functionality using p
 For the proof-of-concept attack implementation targeting the WhatsApp Desktop application, we modified the Prime+Probe attack technique, originally provided by Flush+Flush, to function effectively on macOS. 
 Our experiments were conducted on a 2019 MacBook Pro equipped with an Intel Core i7-9750H processor (6 cores, 2.6 GHz) and 16 GB of RAM, running macOS Sonoma Version 14.1.2.
 We adjusted the Prime+Probe attack in the <a href="https://github.com/Winona-dev/sca-protocol/tree/master/flush_flush/sc/pp">sc/pp</a> directory to monitor the function that generates a new secure session from a shared library named `session_builder_process_pre_key_bundle`.
-The code is expected to know the appropriate addresses: one for starting a secure session (session_builder_process_pre_key_bundle) and another for the instruction triggered when using a one-time pre-key to create the master secret key for that session (OTPK_exists).
+The code is expected to know the appropriate addresses: one for starting a secure session (session_builder) and another for the instruction triggered when using a one-time pre-key to create the master secret key for that session (OTPK_exists).
 
 ### Attack description
 
