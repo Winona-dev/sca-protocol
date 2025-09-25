@@ -18,6 +18,14 @@ event eSend(bitstring,bitstring).
 equation forall x_1:bitstring, x_2:bitstring;   fst((x_1, x_2)) = x_1.
 equation forall x_1:bitstring, x_2:bitstring;   snd((x_1, x_2)) = x_2.
 reduc forall k:bitstring, m:bitstring;   dec(enc(m, k), k) = m.
+
+(*forward_secrecy*)
+query mk:bitstring, sid:bitstring, i:time, j:time,
+      k:time;
+ ((event(eSend(sid, mk))@i) && (attacker(mk)@j)) ==>
+ ((event(eCompromise(sid,mk))@k) && (k < i))
+.
+
 (*attack_pcs*)
 query MK:bitstring, sid:bitstring, i:time, j:time, l:time, k:time;
    (
