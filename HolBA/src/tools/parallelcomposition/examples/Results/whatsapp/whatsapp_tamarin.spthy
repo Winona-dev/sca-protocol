@@ -143,6 +143,12 @@ out(sidBob,CK);
 0
 )
 
+lemma forward_secrecy:
+"All sidA sidB mk #i #j.
+((Send(sidA, sidB, mk)@ #i) ∧ (!KU(mk)@ #j))
+==> (Ex #k. Compromise(sidA, sidB)@k ∧ k < i)
+   | (Ex #k. Compromise(sidB, sidA)@k)
+"
 
 lemma attack_pcs:
   exists-trace
